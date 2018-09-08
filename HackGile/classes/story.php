@@ -9,6 +9,7 @@ class story
     public $title;
     public $description;
     public $priority;
+    public $members = array();
 
     public function __construct($title, $description, $priority) {
         $this->title = $title ?? '';
@@ -29,6 +30,10 @@ class story
         if ($this->isSubstory){
             $this->parentStory->check_substory_completion();
         }
+    }
+
+    public function add_member($member){
+        $this->members[] = $member;
     }
 
     public function check_substory_completion(){

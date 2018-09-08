@@ -27,7 +27,7 @@
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
                         <li><a href="<?php echo url_for('/member.php'); ?>" style="height:64px;">
                                 <?php echo
-                                    "<img style=\"margin-top: 5px;\" src=" . get_gravatar_url($_SESSION['email'], $_SESSION['fname'], $_SESSION['lname'], '50',true) . ">"
+                                    "<img style='margin-top: 5px;border-radius:50%;border-width:2px;border-color:#00695c;border-style:solid;' src=" . get_gravatar_url($_SESSION['email'], $_SESSION['fname'], $_SESSION['lname'], '50',true) . ">"
                                 ?>
                             </a>
                         </li>

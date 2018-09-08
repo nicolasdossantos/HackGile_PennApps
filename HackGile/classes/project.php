@@ -88,8 +88,20 @@ class project
 
         $sprint1 = self::$default_project->create_sprint("Initial Sprint", 2);
         $story1_1 = new story("Assess Knowledge", "Determine the technical skills and knowledge of each team member", 1);
+        $story1_1->add_member(member::GetDefaultMember1());
+        $story1_1->add_member(member::GetDefaultMember2());
+        $story1_1->add_member(member::GetDefaultMember3());
+        $story1_1->complete();
         $story1_2 = new story("Discuss Idea", "Discuss the ideas and goals for the final project", 1);
+        $story1_2->add_member(member::GetDefaultMember1());
+        $story1_2->add_member(member::GetDefaultMember2());
+        $story1_2->add_member(member::GetDefaultMember3());
+        $story1_2->complete();
         $story1_3 = new story("Determine Technologies", "Find the best suited technologies for this project", 1);
+        $story1_3->add_member(member::GetDefaultMember1());
+        $story1_3->add_member(member::GetDefaultMember2());
+        $story1_3->add_member(member::GetDefaultMember3());
+        $story1_3->complete();
 
         $sprint1->add_story($story1_1);
         $sprint1->add_story($story1_2);
@@ -98,9 +110,13 @@ class project
 
         $sprint2 = self::$default_project->create_sprint("Database Design", 2);
         $story2_1 = new story("Map out structure", "Write out the needed properties and how they'll be connected", 1);
+        $story2_1->add_member(member::GetDefaultMember2());
         $story2_2 = new story("Draft MySQL file", "Create sql script that creates the above table", 1);
+        $story2_2->add_member(member::GetDefaultMember2());
         //$story2_1->add_substory(($story2_2));
         $story2_3 = new story("Create Functions", "Mock up important functions that allows use to use the data in the database", 1);
+        $story2_3->add_member(member::GetDefaultMember1());
+        $story2_3->add_member(member::GetDefaultMember3());
 
         $sprint2->add_story($story2_1);
         $sprint2->add_story($story2_2);
