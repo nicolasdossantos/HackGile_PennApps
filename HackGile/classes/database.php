@@ -32,12 +32,12 @@ class Database
         return $connection;
     }
 
-//    function db_disconnect($connection)
-//    {
-//        if (isset($connection)) {
-//            $connection->close();
-//        }
-//    }
+    function db_disconnect($connection)
+    {
+        if (isset($connection)) {
+            $connection->close();
+        }
+    }
 
     static public function set_database($database)
     {
@@ -112,10 +112,10 @@ class Database
 
     protected function create()
     {
-//        $this->validate();
-//        if (!empty($this->errors)) {
-//            return false;
-//        }
+        $this->validate();
+        if (!empty($this->errors)) {
+            return false;
+        }
 
         $attributes = [];
         foreach (static::$db_columns as $column) {
