@@ -23,12 +23,15 @@
 
 
 // Load class definitions manually
-  require_once('../classes/database.php');
-  require_once('../classes/hackathon.php');
-  require_once('../classes/member.php');
-  require_once('../classes/project.php');
-  require_once('../classes/sprint.php');
-  require_once('../classes/story.php');
+  foreach(glob(PRIVATE_PATH . '/classes/*.php') as $file){
+    require_once($file);
+  }
+/*require_once(PRIVATE_PATH . '/classes/*.php');
+require_once('../classes/hackathon.php');
+require_once('../classes/member.php');
+require_once('../classes/project.php');
+require_once('../classes/sprint.php');
+require_once('../classes/story.php');*/
 
 
   $database = Database::db_connect();

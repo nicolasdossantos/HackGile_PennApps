@@ -23,7 +23,7 @@ $project = project::get_default_project1();
                         . "<div class='secondary-content black-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"
                     ?>
                     <div class="progress" style="height:10px;">
-                        <div class="determinate teal" style="width: 70%">
+                        <div class="determinate teal" style="width:" <?php get_completion_percentage() ?>"%">
                         </div>
                     </div>
                 </li>
