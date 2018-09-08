@@ -24,18 +24,20 @@
                     <img class="responsive-img" src="<?php echo url_for('/images/logo.svg'); ?>">
                 </a>
                 <ul id="nav-mobile" class="right">
-                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+                        $user = member::find_by_id($_SESSION['id']);
+                        ?>
                         <li><a href="<?php echo url_for('/member.php'); ?>" style="height:64px;">
                                 <?php echo
-                                    "<img style='margin-top: 5px;border-radius:50%;border-width:2px;border-color:#00695c;border-style:solid;' src=" . get_gravatar_url($_SESSION['email'], $_SESSION['fname'], $_SESSION['lname'], '50',true) . ">"
+                                    "<img style='margin-top: 5px;border-radius:50%;border-width:2px;border-color:#00695c;border-style:solid;' src=" . get_gravatar_url($user->email, $user->first_name, $user->last_name, '50',true) . ">"
                                 ?>
                             </a>
                         </li>
                         <li><a href="<?php echo url_for('/logout.php'); ?>" class="waves-effect waves-light btn">Logout</a></li>
-                    <?php else : ?>
+                    <?php } else { ?>
                         <li><a href="<?php echo url_for('/login.php'); ?>" class="waves-effect waves-light btn">Login</a></li>
                         <li><a href="<?php echo url_for('/signup.php'); ?>" class="waves-effect waves-light btn">Sign Up</a></li>
-                    <?php endif; ?>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

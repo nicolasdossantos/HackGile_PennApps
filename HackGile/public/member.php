@@ -1,11 +1,8 @@
 <?php require_once('../private/initialize.php'); ?>
-
-require_login();
-
 <?php $page_title = 'HackGILE - Profile'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 <?php
-$user = member::GetDefaultMember1();
+    $user = member::find_by_id($_SESSION['id']);
 ?>
 <div class="teal lighten-4" style="height:10em;"></div>
 <div class="teal z-depth-2">
@@ -13,7 +10,7 @@ $user = member::GetDefaultMember1();
         <div class="row">
             <div class="col m2">
                 <div class="user-profile user-picture z-order-2" style="margin-bottom: 20px;" >
-                    <?php echo "<img src=" . get_gravatar_url($_SESSION['email'], $_SESSION['fname'], $_SESSION['lname'], "180", false) . ">" ?>
+                    <?php echo "<img src=" . get_gravatar_url($user->email, $user->first_name, $user->last_name, "180", true) . ">" ?>
                 </div>
             </div>
             <div class="col m10">

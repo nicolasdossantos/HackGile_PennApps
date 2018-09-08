@@ -6,7 +6,7 @@
 
 if(is_post_request()){
 
-    $email = $_POST['email'] ?? '';
+    $email = mysqli_real_escape_string($database, $_POST['email'] ?? '');
     $first_name = $_POST['first_name'] ?? '';
     $last_name = $_POST['last_name'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -19,18 +19,25 @@ if(is_post_request()){
         header("Status: ".$statusCode." ".$statusMessage);
     }
 
+    $sql = 'SELECT id FROM members WHERE email="'.$email.'"';
+    $results = member::find_by_sql($sql);
+    if(!empty($results)){
+        $statusCode = 400;
+        $statusMessage = "An account with that username already exists.";
+        header("Location: signup.php");
+        header("Status: ".$statusCode." ".$statusMessage);
+    }
 
     $sql = 'INSERT INTO members (email, first_name, last_name, hashed_password) VALUES ("'
         . $email . '", "' . $first_name . '", "' . $last_name . '", "' . hash("md5", $password) . '");';
 
 //    $sql = "INSERT INTO members (email) VALUES (a@a.com)";
-    $result = $database->query($sql);
-
-    $_SESSION['email'] = $email;
-    $_SESSION['fname'] = $first_name;
-    $_SESSION['lname'] = $last_name;
-    $_SESSION['logged_in'] = true;
-    header("Location: member.php");
+    if($database->query($sql)){
+        $last_id = $database->insert_id;
+        $_SESSION['id'] = $last_id;
+        $_SESSION['logged_in'] = true;
+        header("Location: member.php");
+    }
 }
 ?>
 

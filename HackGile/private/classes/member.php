@@ -15,7 +15,7 @@ class member extends Database
         $this->email = $args['email'] ?? '';
         $this->first_name = $args['first_name'] ?? '';
         $this->last_name = $args['last_name'] ?? '';
-        $this->is_admin = $args['is_admin'??false];
+        $this->is_admin = $args['is_admin'] ?? false;
     }
 
     public function getEmail()
