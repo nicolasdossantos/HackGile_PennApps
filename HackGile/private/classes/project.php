@@ -1,8 +1,9 @@
 <?php
 
-class project
+class project extends Database
 {
-
+    static protected $table_name = 'projects';
+    static protected $db_columns = ['id', 'name', 'max_members', 'year', 'description', 'git_link'];
     public $name;
     public $description;
     public $max_members;

@@ -1,7 +1,9 @@
 <?php
 
-class story
+class story extends Database
 {
+    static protected $table_name = 'stories';
+    static protected $db_columns = ['id', 'priority', 'complete', 'name', 'description'];
     public $substory = array();
     public $isComplete = false;
     public $isSubstory = false;

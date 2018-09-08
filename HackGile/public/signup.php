@@ -16,7 +16,7 @@ if(is_post_request()){
 //        $password . '))';
     $sql = "INSERT INTO members (email) VALUES (a@a.com)";
     $database->query($sql);
-    ?>boop<?php
+
     $_SESSION['email'] = $email;
     $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
