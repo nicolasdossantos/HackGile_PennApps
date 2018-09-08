@@ -2,5 +2,5 @@
 
 class sprint
 {
-
+    public $number;
 }

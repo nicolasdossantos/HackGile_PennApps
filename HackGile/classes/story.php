@@ -49,7 +49,7 @@ class story
     }
 
     public function delete_story(){
-        unset($this);
+        //unset($this);
     }
 
     function __destruct()

@@ -17,22 +17,34 @@ class member
     }
 
     public function getFullName(){
-        return $this->fname . $this->lname;
+        return $this->fname . " " . $this->lname;
     }
 
+    public function getAssociatedProjects(){
+        return [project::get_default_project1()];
+    }
 
     public static function GetDefaultMember1(){
-        $args = ["ndefilippis98@gmail.com", "Nick", "DeFilippis"];
+        $args = array(
+            "email" => "ndefilippis98@gmail.com",
+            "fname" => "Nick",
+            "lname" => "DeFilippis");
         return new Member($args);
     }
 
     public static function GetDefaultMember2(){
-        $args = ["tuf92449@temple.edu", "Nicolas", "Dos Santos"];
+        $args = array(
+            "email" => "tuf92449@temple.edu",
+            "fname" => "Nicolas",
+            "lname" => "Dos Santos");
         return new Member($args);
     }
 
     public static function GetDefaultMember3(){
-        $args = ["tchin25@gmail.com", "Thomas", "Chin"];
+        $args = array(
+            "email" => "tchin25@gmail.com",
+            "fname" => "Thomas",
+            "lname" => "Chin");
         return new Member($args);
     }
 }
