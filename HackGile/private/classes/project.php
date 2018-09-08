@@ -89,62 +89,48 @@ class project extends Database
         self::$default_project = new project($args);
 
         $sprint1 = self::$default_project->create_sprint("Initial Sprint", 2);
-        $story1_1 = new story("Assess Knowledge", "Determine the technical skills and knowledge of each team member", 1);
+
+        $story1_1 = $sprint1->add_story(["title" => "Assess Knowledge", "description" => "Determine the technical skills and knowledge of each team member", "priority" => 1]);
         $story1_1->add_member(member::GetDefaultMember1());
         $story1_1->add_member(member::GetDefaultMember2());
         $story1_1->add_member(member::GetDefaultMember3());
         $story1_1->add_member(member::GetDefaultMember4());
         $story1_1->complete();
-        $story1_2 = new story("Discuss Idea", "Discuss the ideas and goals for the final project", 1);
+
+        $story1_2 = $sprint1->add_story(["title" => "Discuss Idea", "description" => "Discuss the ideas and goals for the final project", "priority" => 1]);
         $story1_2->add_member(member::GetDefaultMember1());
         $story1_2->add_member(member::GetDefaultMember2());
         $story1_2->add_member(member::GetDefaultMember3());
         $story1_2->add_member(member::GetDefaultMember4());
         $story1_2->complete();
-        $story1_3 = new story("Determine Technologies", "Find the best suited technologies for this project", 1);
+        $story1_3 = $sprint1->add_story(["title"=>"Determine Technologies", "description"=>"Find the best suited technologies for this project", "priority"=>1]);
         $story1_3->add_member(member::GetDefaultMember1());
         $story1_3->add_member(member::GetDefaultMember2());
         $story1_3->add_member(member::GetDefaultMember3());
         $story1_3->add_member(member::GetDefaultMember4());
         $story1_3->complete();
 
-        $sprint1->addStory($story1_1);
-        $sprint1->addStory($story1_2);
-        $sprint1->addStory($story1_3);
-
-
         $sprint2 = self::$default_project->create_sprint("Database Design", 2);
-        $story2_1 = new story("Map out structure", "Write out the needed properties and how they'll be connected", 1);
+        $story2_1 = $sprint2->add_story(["title"=>"Map out structure", "description"=>"Write out the needed properties and how they'll be connected", "priority"=>1]);
         $story2_1->add_member(member::GetDefaultMember2());
         $story2_1->complete();
-        $story2_2 = new story("Draft MySQL file", "Create sql script that creates the above table", 1);
+        $story2_2 = $sprint2->add_story(["title" => "Draft MySQL file", "description" => "Create sql script that creates the above table", "priority" => 1]);
         $story2_2->add_member(member::GetDefaultMember2());
         $story2_2->complete();
         //$story2_1->add_substory(($story2_2));
-        $story2_3 = new story("Create Functions", "Mock up important functions that allows use to use the data in the database", 1);
+        $story2_3 = $sprint2->add_story(["title" => "Create Functions", "description" => "Mock up important functions that allows use to use the data in the database", "priority"=>1]);
         $story2_3->add_member(member::GetDefaultMember1());
         $story2_3->add_member(member::GetDefaultMember3());
 
-        $sprint2->addStory($story2_1);
-        $sprint2->addStory($story2_2);
-        $sprint2->addStory($story2_3);
-
-
         $sprint3 = self::$default_project->create_sprint("Frontend Design", 4);
-        $story3_1 = new story("Draw Mockups", "Draw Mockups of each screen on paper", 1);
-        $story3_2 = new story("Implement Mockups", "Implement each page of that was mocked up", 1);
-        $story3_3 = new story("Route pages", "Make sure all links work and pages are routed correctly", 1);
-
-        $sprint3->addStory($story3_1);
-        $sprint3->addStory($story3_2);
-        $sprint3->addStory($story3_3);
+        $story3_1 = $sprint3->add_story(["title" => "Draw Mockups", "description" => "Draw Mockups of each screen on paper", "priority" => 1]);
+        $story3_1->complete();
+        $story3_2 = $sprint3->add_story(["title" => "Implement Mockups", "description" => "Implement each page of that was mocked up", "priority" => 1]);
+        $story3_3 = $sprint3->add_story(["title" => "Route pages", "description" => "Make sure all links work and pages are routed correctly", "priority" => 1]);
 
         $sprint4 = self::$default_project->create_sprint("Backend Conncetion", 4);
-        $story4_1 = new story("Create classes", "Create important php classes based on the database", 1);
-        $story4_2 = new story("Connect to frontend", "Connect the data to the frontend", 1);
-
-        $sprint4->addStory($story4_1);
-        $sprint4->addStory($story4_2);
+        $story4_1 = $sprint4->add_story(["title" => "Create classes", "description" => "Create important php classes based on the database", "priority" => 1]);
+        $story4_2 = $sprint4->add_story(["title" => "Connect to frontend", "description" => "Connect the data to the frontend", "priority" => 1]);
 
         $sprint5 = self::$default_project->create_sprint("Final Touches", 2);
 

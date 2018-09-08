@@ -73,7 +73,6 @@ $project = project::get_default_project1();
                                 <?php } ?>
                             </ul>
                         <?php endif; */?>
-
                     </li>
                 <?php } ?>
             </ul>

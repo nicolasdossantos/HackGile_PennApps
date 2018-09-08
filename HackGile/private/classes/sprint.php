@@ -15,21 +15,17 @@ class sprint extends Database
         $this->duration =  60 * 60 * $duration ?? 0;
     }
 
-
-
-
     public function add_story($args=[])
     {
         $this->doAddStory = true;
-        $this->stories[] = new story($args);
+        $new_story = new story($args);
+        $this->stories[] = $new_story;
 //        $sql = "INSERT INTO stories (priority, complete, name,
 //            description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
 //            $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
 //            $_POST['sprintID'];
 //        $result = $database->query($sql);
-        return;
-
-
+        return $new_story;
     }
 
 

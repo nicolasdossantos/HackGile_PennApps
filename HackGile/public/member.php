@@ -54,4 +54,3 @@ $user = member::GetDefaultMember1();
 
 
 </div>
-<?php include(SHARED_PATH . '/public_footer.php'); ?>
