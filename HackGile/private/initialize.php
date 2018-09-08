@@ -31,8 +31,8 @@
   require_once('../classes/story.php');
 
 
-$database = Database::db_connect();
-Database::set_database($database);
+  $database = Database::db_connect();
+  Database::set_database($database);
 
 
 
