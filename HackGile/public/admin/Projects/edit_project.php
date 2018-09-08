@@ -26,7 +26,7 @@ if(is_post_request()) {
     $repo = $_POST['git_link'] ?? '';
     $max_members = $_POST['max_members'] || 5;
     $hackathon_name = $_POST['hackathon_name'] ?? '';
-    $hackathon_length = $_POST['hackathon_length'] || 24;
+    $hackathon_length = $_POST['hackathon_length'] ?? 24;
 
     $args = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members);
 
@@ -58,33 +58,33 @@ if(is_post_request()) {
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
     <div class="row">
         <form action="edit_project.php" method='POST' class="col s12">
-            <h3>Create a New Project</h3>
+            <h3>Edit <?php echo $project->name; ?></h3>
 
             <div class="row">
                 <div class="input-field col s12">
                     <label for="name">Project Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Project Name (Can be changed later)">
+                    <input type="text" class="form-control" name="name" placeholder="Project Name (Can be changed later)" value="<?php echo h($project->name); ?>">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <label for="description">Description</label>
-                    <textarea id="desc-text-area" name="description" class="materialize-textarea" placeholder="Description (Optional)"></textarea>
+                    <textarea id="desc-text-area" name="description" class="materialize-textarea" placeholder="Description (Optional)"><?php echo h($project->description); ?></textarea>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <label for="git_link">Repository Link</label>
-                    <input type="url" class="form-control" name="git_link" placeholder="Repo Link">
+                    <input type="url" class="form-control" name="git_link" placeholder="Repo Link" value="<?php echo h($project->git_link); ?>">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s4">
                     <label for="max_members">Maximum Team Members</label>
-                    <input type="number" class="form-control" name="max_members" value="4">
+                    <input type="number" class="form-control" name="max_members" value="<?php echo h($project->max_members); ?>">
                 </div>
                 <div class="input-field col s8">
                     <a action="add_member" class="btn btn-primary">Add Member</a>
