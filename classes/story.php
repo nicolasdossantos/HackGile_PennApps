@@ -6,14 +6,14 @@ class story
     public $isComplete = false;
     public $isSubstory = false;
     public $parentStory;
-    protected $title;
-    protected $description;
-    protected $priority;
+    public $title;
+    public $description;
+    public $priority;
 
     public function __construct($args=[]) {
         $this->title = $args['title'] ?? '';
         $this->description = $args['description'] ?? '';
-        $this->priority = $args['priority'] ?? '';
+        $this->priority = $args['priority'] ?? 0;
     }
 
     public function edit_story_title($title){
