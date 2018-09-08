@@ -21,14 +21,15 @@
 
 
 // Load class definitions manually
+  require_once('../classes/database.php');
   require_once('../classes/hackathon.php');
   require_once('../classes/member.php');
   require_once('../classes/project.php');
   require_once('../classes/sprint.php');
   require_once('../classes/story.php');
-  require_once('../classes/database.php');
 
-$database = db_connect();
+
+$database = Database::db_connect();
 Database::set_database($database);
 
 

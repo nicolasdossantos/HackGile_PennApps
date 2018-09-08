@@ -8,20 +8,6 @@ class Database
     public $errors = [];
 
 
-    protected function db_connect()
-    {
-
-        $db_host = 'localhost';
-        $db_user = 'webuser';
-        $db_pass = 'pennapps2018';
-        $db_name = 'pennapps';
-
-        $connection = new mysqli($db_host, $db_user, $db_pass, $db_name);
-        confirm_db_connect($connection);
-
-        return $connection;
-    }
-
     function confirm_db_connect($connection)
     {
         if ($connection->connect_errno) {
@@ -30,6 +16,20 @@ class Database
             $msg .= " (" . $connection->connect_errno . ")";
             exit($msg);
         }
+    }
+
+    public function db_connect()
+    {
+
+        $db_host = 'localhost';
+        $db_user = 'webuser';
+        $db_pass = 'pennapps2018';
+        $db_name = 'pennapps';
+
+        $connection = new mysqli($db_host, $db_user, $db_pass, $db_name);
+        Database::confirm_db_connect($connection);
+
+        return $connection;
     }
 
     function db_disconnect($connection)

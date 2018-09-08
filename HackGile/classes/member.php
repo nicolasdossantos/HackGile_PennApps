@@ -2,7 +2,7 @@
 
 class member extends Database
 {
-    static protected $table_name = 'members';
+    static protected $table = 'members';
     static protected $db_columns = ['email', 'first_name', 'last_name', 'is_admin'];
     public $email;
     public $fname;
