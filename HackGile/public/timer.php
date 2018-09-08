@@ -1,4 +1,5 @@
 <?php
+require_login();
 session_start();
 
 $link = mysqli_connect('localhost','webuser','pennapps2018');
