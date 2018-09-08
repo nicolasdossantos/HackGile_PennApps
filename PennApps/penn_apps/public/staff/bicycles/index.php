@@ -5,7 +5,7 @@
 
 $current_page = $_GET['page'] ?? 1;
 $per_page = 5;
-$total_count = Bicycle::count_all();
+$total_count = Projects::count_all();
 
 $pagination = new Pagination($current_page, $per_page, $total_count);
 
@@ -13,13 +13,13 @@ $pagination = new Pagination($current_page, $per_page, $total_count);
 // use pagination instead
 // $bicycles = Bicycle::find_all();
 
-$sql = "SELECT * FROM bicycles ";
+$sql = "SELECT * FROM projects ";
 $sql .= "LIMIT {$per_page} ";
 $sql .= "OFFSET {$pagination->offset()}";
-$bicycles = Bicycle::find_by_sql($sql);
+$project = Projects::find_by_sql($sql);
 
 ?>
-<?php $page_title = 'Bicycles'; ?>
+<?php $page_title = 'Projects'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
@@ -27,15 +27,15 @@ $bicycles = Bicycle::find_by_sql($sql);
     <h1>Bicycles</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/staff/bicycles/new.php'); ?>">Add Bicycle</a>
+      <a class="action" href="<?php echo url_for('/staff/bicycles/new.php'); ?>">Create a Project</a>
     </div>
 
   	<table class="list">
       <tr>
         <th>ID</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
         <th>Category</th>
         <th>Gender</th>
         <th>Color</th>

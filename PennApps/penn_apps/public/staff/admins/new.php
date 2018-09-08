@@ -8,11 +8,11 @@ if(is_post_request()) {
 
   // Create record using post parameters
   $args = $_POST['admin'];
-  $admin = new Admin($args);
-  $result = $admin->save();
+  $project = new Projects($args);
+  $result = $project->save();
 
   if($result === true) {
-    $new_id = $admin->id;
+    $new_id = $project->id;
     $session->message('The admin was created successfully.');
     redirect_to(url_for('/staff/admins/show.php?id=' . $new_id));
   } else {
@@ -21,7 +21,7 @@ if(is_post_request()) {
 
 } else {
   // display the form
-  $admin = new Admin;
+  $admin = new Projects;
 }
 
 ?>

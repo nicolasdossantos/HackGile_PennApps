@@ -1,6 +1,6 @@
 <?php require_once('../private/initialize.php'); ?>
 
-<?php $page_title = 'Inventory'; ?>
+<?php $page_title ="Projects" ; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="main">
@@ -15,30 +15,27 @@
 
     <table id="inventory">
       <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Category</th>
-        <th>Gender</th>
-        <th>Color</th>
-        <th>Price</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Group Capacity</th>
+        <th>Git Link</th>
+
         <th>&nbsp;</th>
       </tr>
 
 <?php
 
-$bikes = Bicycle::find_all();
+$projects = Projects::find_all();
 
 ?>
-      <?php foreach($bikes as $bike) { ?>
+      <?php foreach($projects as $project) { ?>
       <tr>
-        <td><?php echo h($bike->brand); ?></td>
-        <td><?php echo h($bike->model); ?></td>
-        <td><?php echo h($bike->year); ?></td>
-        <td><?php echo h($bike->category); ?></td>
-        <td><?php echo h($bike->gender); ?></td>
-        <td><?php echo h($bike->color); ?></td>
-        <td><?php echo h(money_format('$%i', $bike->price)); ?></td>
+        <td><?php echo h($project->name); ?></td>
+          <td><?php echo h($project->description); ?></td>
+          <td><?php echo h($project->max_member); ?></td>
+          <td><?php echo h($project->git_link); ?></td>
+
+
         <td><a href="detail.php?id=<?php echo $bike->id; ?>">View</a></td>
       </tr>
       <?php } ?>
