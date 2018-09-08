@@ -15,16 +15,16 @@ class sprint
 
 
 
-    public function addStory($args=[])
+    public function add_story($args=[])
     {
         $this->doAddStory = true;
         $this->stories[] = new story($args);
-        $sql = "INSERT INTO stories (priority, complete, name, 
-            description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
-            $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
-            $_POST['sprintID'];
-        $result = self::$database->query($sql);
-        return $result;
+//        $sql = "INSERT INTO stories (priority, complete, name,
+//            description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
+//            $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
+//            $_POST['sprintID'];
+//        $result = $database->query($sql);
+        return;
 
     }
 

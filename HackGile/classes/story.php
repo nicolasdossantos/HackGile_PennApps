@@ -10,7 +10,7 @@ class story
     public $description;
     public $priority;
 
-    public function __construct($title, $description, $priority) {
+    public function __construct($args = []) {
         $this->title = $title ?? '';
         $this->description = $description ?? '';
         $this->priority = $priority ?? 0;
