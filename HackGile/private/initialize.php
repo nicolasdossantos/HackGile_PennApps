@@ -17,6 +17,8 @@
   require_once('validation_functions.php');
   require_once('functions.php');
 
+
+
 // Load class definitions manually
   require_once('../classes/hackathon.php');
   require_once('../classes/member.php');

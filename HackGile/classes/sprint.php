@@ -8,16 +8,14 @@ class sprint
     public $countdown; //time remaining
     public $doAddStory = false;
 
-    public function __construct($args = []) {
-        $this->name = $args['name'] ?? '';
-        $this->duration =  $args['duration'] ?? '';
-        $this->countdown = $args['countdown'] ?? '';
-        $this->stories = $args['stories'] ?? '';
+    public function __construct($name, $duration) {
+        $this->name = $name ?? '';
+        $this->duration =  $duration ?? 0;
     }
 
     public function addStory($story) {
         $this->doAddStory = true;
-        $this->stories = $story;
+        $this->stories[] = $story;
     }
 
     public function startSprint($duration) {
