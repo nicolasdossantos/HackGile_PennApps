@@ -1,23 +1,8 @@
 <?php require_once('../../../private/initialize.php'); ?>
-<?php require_login(); ?>
-
 <?php
-
-$current_page = $_GET['page'] ?? 1;
-$per_page = 5;
-$total_count = Projects::count_all();
-
-$pagination = new Pagination($current_page, $per_page, $total_count);
-
 // Find all bicycles;
 // use pagination instead
-// $bicycles = Bicycle::find_all();
-
-$sql = "SELECT * FROM projects ";
-$sql .= "LIMIT {$per_page} ";
-$sql .= "OFFSET {$pagination->offset()}";
-$project = Projects::find_by_sql($sql);
-
+$projects = Projects::find_all();
 ?>
 <?php $page_title = 'Projects'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
@@ -35,39 +20,28 @@ $project = Projects::find_by_sql($sql);
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
-        <th></th>
-        <th>Category</th>
-        <th>Gender</th>
-        <th>Color</th>
-        <th>Price</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
+        <th>Number of Members Allowed</th>
+        <th>Git Link</th>
       </tr>
-
-      <?php foreach($bicycles as $bicycle) { ?>
+      <?php foreach($projects as $project) { ?>
         <tr>
-          <td><?php echo h($bicycle->id); ?></td>
-          <td><?php echo h($bicycle->brand); ?></td>
-          <td><?php echo h($bicycle->model); ?></td>
-          <td><?php echo h($bicycle->year); ?></td>
-          <td><?php echo h($bicycle->category); ?></td>
-          <td><?php echo h($bicycle->gender); ?></td>
-          <td><?php echo h($bicycle->color); ?></td>
-          <td><?php echo h($bicycle->price); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/bicycles/show.php?id=' . h(u($bicycle->id))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/bicycles/edit.php?id=' . h(u($bicycle->id))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/bicycles/delete.php?id=' . h(u($bicycle->id))); ?>">Delete</a></td>
+          <td><?php echo h($project->id); ?></td>
+          <td><?php echo h($project->name); ?></td>
+          <td><?php echo h($project->description); ?></td>
+          <td><?php echo h($project->max_member); ?></td>
+          <td><?php echo h($project->git_id); ?></td>
+
+          <td><a class="action" href="<?php echo url_for('/staff/bicycles/show.php?id=' . h(u($project->id))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/staff/bicycles/edit.php?id=' . h(u($project->id))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/staff/bicycles/delete.php?id=' . h(u($project->id))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
 
 <?php
 $url = url_for('/staff/bicycles/index.php');
-echo $pagination->page_links($url);
+
 ?>
-
-
   </div>
 
 </div>
