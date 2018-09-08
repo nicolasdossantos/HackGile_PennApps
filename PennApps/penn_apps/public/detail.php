@@ -7,7 +7,7 @@
   $id = $_GET['id'] ?? false;
 
   if(!$id) {
-    redirect_to('bicycles.php');
+    redirect_to('member.php');
   }
 
   // Find bicycle using ID
@@ -21,7 +21,7 @@
 
 <div id="main">
 
-  <a href="bicycles.php">Back to Inventory</a>
+  <a href="member.php">Back to Inventory</a>
 
   <div id="page">
 

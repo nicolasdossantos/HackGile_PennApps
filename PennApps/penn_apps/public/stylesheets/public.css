@@ -15,7 +15,6 @@ body {
 }
 
 header {
-  width: 980px;
   margin: 0 auto;
   padding: 0;
   text-align: left;
@@ -130,6 +129,10 @@ table#inventory tr th {
 table#inventory tr td, table#inventory tr th {
   border: 1px solid #000;
   padding: 3px;
+}
+
+.parallax {
+  height: 500px;
 }
 
 .detail dl {
