@@ -79,6 +79,21 @@ class member extends Database
         return self::$member3;
     }
 
+    private static $member4 = null;
+    public static function GetDefaultMember4()
+    {
+        if(self::$member4 !== null){
+            return self::$member4;
+        }
+        $args = array(
+            "email" => "angelaweiber@temple.edu",
+            "first_name" => "Angela",
+            "last_name" => "Weiber",
+            "is_admin" =>true);
+        self::$member4 = new Member($args);
+        return self::$member4;
+    }
+
     //Rewrite it
     public function deleteMember($member)
     {

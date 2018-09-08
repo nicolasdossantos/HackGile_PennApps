@@ -93,16 +93,19 @@ class project extends Database
         $story1_1->add_member(member::GetDefaultMember1());
         $story1_1->add_member(member::GetDefaultMember2());
         $story1_1->add_member(member::GetDefaultMember3());
+        $story1_1->add_member(member::GetDefaultMember4());
         $story1_1->complete();
         $story1_2 = new story("Discuss Idea", "Discuss the ideas and goals for the final project", 1);
         $story1_2->add_member(member::GetDefaultMember1());
         $story1_2->add_member(member::GetDefaultMember2());
         $story1_2->add_member(member::GetDefaultMember3());
+        $story1_2->add_member(member::GetDefaultMember4());
         $story1_2->complete();
         $story1_3 = new story("Determine Technologies", "Find the best suited technologies for this project", 1);
         $story1_3->add_member(member::GetDefaultMember1());
         $story1_3->add_member(member::GetDefaultMember2());
         $story1_3->add_member(member::GetDefaultMember3());
+        $story1_3->add_member(member::GetDefaultMember4());
         $story1_3->complete();
 
         $sprint1->addStory($story1_1);
