@@ -69,6 +69,5 @@ class member extends Database
         $member->email = '';
         $member->fname = '';
         $member->lname = '';
-
     }
 }

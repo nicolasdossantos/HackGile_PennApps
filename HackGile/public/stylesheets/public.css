@@ -160,3 +160,8 @@ table#inventory tr td, table#inventory tr th {
 .user-profile {
   margin-top: -5em;
 }
+
+.user-picture img{
+  border-radius: 50%;
+  border-color: #009688;
+}
