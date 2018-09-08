@@ -32,12 +32,12 @@ class Database
         return $connection;
     }
 
-    function db_disconnect($connection)
-    {
-        if (isset($connection)) {
-            $connection->close();
-        }
-    }
+//    function db_disconnect($connection)
+//    {
+//        if (isset($connection)) {
+//            $connection->close();
+//        }
+//    }
 
     static public function set_database($database)
     {
@@ -112,13 +112,20 @@ class Database
 
     protected function create()
     {
-        $this->validate();
-        if (!empty($this->errors)) {
-            return false;
+//        $this->validate();
+//        if (!empty($this->errors)) {
+//            return false;
+//        }
+
+        $attributes = [];
+        foreach (static::$db_columns as $column) {
+            if ($column == 'id') {
+                continue;
+            }
+            $attributes[$column] = $this->$column;
         }
 
-        $attributes = $this->sanitized_attributes();
-        $sql = "INSERT INTO " . static::$table_name . " (";
+        $sql = "INSERT INTO members (";
         $sql .= join(', ', array_keys($attributes));
         $sql .= ") VALUES ('";
         $sql .= join("', '", array_values($attributes));
