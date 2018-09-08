@@ -125,11 +125,12 @@ class Database
             $attributes[$column] = $this->$column;
         }
 
-        $sql = "INSERT INTO members (";
+        $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(', ', array_keys($attributes));
         $sql .= ") VALUES ('";
         $sql .= join("', '", array_values($attributes));
         $sql .= "')";
+        echo $sql;
         $result = self::$database->query($sql);
         if ($result) {
             $this->id = self::$database->insert_id;

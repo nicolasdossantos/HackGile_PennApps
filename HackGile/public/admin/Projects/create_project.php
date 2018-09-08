@@ -7,26 +7,23 @@ if(is_post_request()){
     $name = $_POST['name'] ?? '';
     $desc = $_POST['description'] ?? '';
     $repo = $_POST['git_link'] ?? '';
-    $max_members = $_POST['max_members'] ?? 5;
+    $max_members = $_POST['max_members'] || 5;
     $hackathon_name = $_POST['hackathon_name'] ?? '';
-    $hackathon_length = $_POST['hackathon_length'] ?? 24;
+    $hackathon_length = $_POST['hackathon_length'] || 24;
 
-    $arr = ['name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members];
+    $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members);
     $project = new project($arr);
-
     $project->save();
 
     //Do database stuff
 
-    redirect_to("../../project.php");
+    //redirect_to("create_project.php");
 }
 ?>
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
-    <?php print_r($arr); ?>
-
     <div class="row">
-        <form method='POST' class="col s12" action="create_project.php">
+        <form action="create_project.php" method='POST' class="col s12">
             <h3>Create a New Project</h3>
 
             <div class="row">
