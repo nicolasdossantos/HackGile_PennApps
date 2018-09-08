@@ -23,7 +23,7 @@ class sprint
             $_POST['sprintID'];
         $result = self::$database->query($sql);
         return $result;
-        
+
 
     }
 
