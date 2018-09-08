@@ -11,16 +11,20 @@ if(is_post_request()){
     $hackathon_name = $_POST['hackathon_name'] ?? '';
     $hackathon_length = $_POST['hackathon_length'] ?? 24;
 
-//    foreach($_POST as $key => $value){
-//        echo '<div>'.$key."--->".$value.'</div>';
-//    }
+    $arr = ['name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members];
+    $project = new project($arr);
+
+    $project->save();
+
     //Do database stuff
 
-    header("Location: project.php");
+    redirect_to("../../project.php");
 }
 ?>
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
+    <?php print_r($arr); ?>
+
     <div class="row">
         <form method='POST' class="col s12" action="create_project.php">
             <h3>Create a New Project</h3>
@@ -71,12 +75,15 @@ if(is_post_request()){
                 <div class="input-field col s6">
                     <a action="add_sprint" class="btn btn-primary">Add Sprint</a>
                 </div>
+
             </div>
             <hr>
             <button type="submit" class="btn btn-primary right">Submit Event</button>
         </form>
     </div>
 </div>
+
+
 
 <script>
     function checkPasswordLabel(){
