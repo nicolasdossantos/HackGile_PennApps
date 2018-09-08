@@ -13,10 +13,11 @@ class story extends Database
     public $priority;
     public $members = array();
 
-    public function __construct($args=[]) {
-        $this->title = $args['title'] ?? '';
-        $this->description = $args['description'] ?? '';
-        $this->priority = $args['priority'] || 0;
+
+    public function __construct($title, $description, $priority) {
+        $this->title = $title ?? 'default title';
+        $this->description = $description ?? 'default description';
+        $this->priority = $priority ?? 0;
     }
 
     public function edit_story_title($title){

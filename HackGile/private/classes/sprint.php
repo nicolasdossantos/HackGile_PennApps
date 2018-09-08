@@ -3,7 +3,7 @@
 class sprint extends Database
 {
     static protected $table_name = 'sprints';
-    static protected $db_columns = ['id', 'duration'];
+    static protected $db_columns = ['id', 'name', 'duration'];
     public $name;
     public $duration; //total time
     public $stories = array(); //all tasks on project
@@ -15,17 +15,18 @@ class sprint extends Database
         $this->duration =  60 * 60 * $duration ?? 0;
     }
 
-    public function add_story($args=[])
+
+    public function add_story($title, $description, $priority)
     {
         $this->doAddStory = true;
-        $new_story = new story($args);
-        $this->stories[] = $new_story;
+        $newStory = new story($title, $description, $priority);
+        $this->stories[] = $newStory;
 //        $sql = "INSERT INTO stories (priority, complete, name,
 //            description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
 //            $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
 //            $_POST['sprintID'];
 //        $result = $database->query($sql);
-        return $new_story;
+        return $newStory;
     }
 
 

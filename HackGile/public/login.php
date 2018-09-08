@@ -11,9 +11,8 @@ if(is_post_request()){
     $result =  member::find_by_sql($sql);
 
     if (count($result) == 1){
-        $_SESSION['email'] = $email;
-        $_SESSION['fname'] = "Nick";
-        $_SESSION['lname'] = "DeFilippis";
+        $value = $result[0];
+        $_SESSION['id'] = $value->id;
         $_SESSION['logged_in'] = true;
         header("Location: member.php");
     }
