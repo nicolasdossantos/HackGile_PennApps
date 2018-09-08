@@ -2,101 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8453316-d68d-478a-b518-7ece21b7bb6a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/classes/hackathon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/member.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/project.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/sprint.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/task.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/story.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/.idea/Lab01.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/3.12.0/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/3.12.0/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/C.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/main.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Lab01.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/Lab01" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/Lab01.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab01/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/admin.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/bicycle.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/databaseobject.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/hackathons.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/members.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/pagination.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/projects.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/session.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/sprints.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/classes/stories.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/database_functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/db_credentials.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/initialize.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/shared/public_copyright_disclaimer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/shared/public_footer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/shared/public_header.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/shared/staff_footer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/shared/staff_header.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/status_error_functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/used_bicycles.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/private/validation_functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/about.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/bicycles.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/detail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/images/AdobeStock_18040381_xlarge.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/images/AdobeStock_50633008_xlarge.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/images/AdobeStock_55807979_thumb.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/images/USDOT_bicycle_symbol.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/admins/delete.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/admins/edit.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/admins/form_fields.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/admins/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/admins/new.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/admins/show.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/bicycles/delete.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/bicycles/edit.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/bicycles/form_fields.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/bicycles/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/bicycles/new.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/bicycles/show.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/staff/logout.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/stylesheets/public.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PennApps/penn_apps/public/stylesheets/staff.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/createDatabase.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/task.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,12 +32,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="12" />
+          <entry key="dummy" value="5" />
+          <entry key="php" value="350" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="12" />
+          <entry key="PHP" value="350" />
+          <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -150,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/task.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/story.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="306">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -172,16 +82,16 @@
         <entry file="file://$PROJECT_DIR$/classes/project.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/member.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="85">
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -205,11 +115,12 @@
       <list>
         <option value="$PROJECT_DIR$/PennApps/penn_apps/private/classes/stories.class.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/classes/task.php" />
         <option value="$PROJECT_DIR$/classes/hackathon.php" />
         <option value="$PROJECT_DIR$/classes/sprint.php" />
         <option value="$PROJECT_DIR$/classes/project.php" />
         <option value="$PROJECT_DIR$/classes/member.php" />
+        <option value="$PROJECT_DIR$/classes/task.php" />
+        <option value="$PROJECT_DIR$/classes/story.php" />
       </list>
     </option>
   </component>
@@ -221,8 +132,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="85" />
-    <option name="y" value="25" />
+    <option name="x" value="135" />
+    <option name="y" value="-9" />
     <option name="width" value="1750" />
     <option name="height" value="969" />
   </component>
@@ -242,6 +153,16 @@
               <item name="PennApps" type="b2602c69:ProjectViewProjectNode" />
               <item name="PennApps" type="462c0819:PsiDirectoryNode" />
               <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PennApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PennApps" type="462c0819:PsiDirectoryNode" />
+              <item name="private" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PennApps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PennApps" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -279,12 +200,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536368591434</updated>
-      <workItem from="1536368592763" duration="4112000" />
+      <workItem from="1536368592763" duration="5959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4112000" />
+    <option name="totallyTimeSpent" value="5959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -317,6 +238,16 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/classes/hackathon.php</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/PennApps/penn_apps/private/classes/bicycle.class.php">
@@ -382,24 +313,24 @@
     <entry file="file://$PROJECT_DIR$/PennApps/penn_apps/private/classes/hackathons.class.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/sprint.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -410,17 +341,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/project.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/member.php">
+    <entry file="file://$PROJECT_DIR$/classes/story.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="306">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
         </state>
       </provider>
     </entry>
