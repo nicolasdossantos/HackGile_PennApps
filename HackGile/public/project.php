@@ -1,16 +1,26 @@
-<?php require_once('../private/initialize.php'); ?>
-
+<?php require_once('../private/initialize.php');
 //require_login();
+?>
 
 <?php
-$project = project::get_default_project1();
+    if( isset($_GET['id'])) {
+        $project = project::find_by_id($_GET['id']);
+    }
+    else{
+        $project = project::get_default_project1();
+    }
 ?>
 
 <?php $page_title = 'HackGILE - ' . $project->name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div class="container teal lighten-4 z-depth-2">
-    <h2 class="center z-depth-2 teal white-text"><?php echo $project->name ?></h2>
+    <h2 class="center z-depth-2 teal white-text">
+        <?php echo $project->name ?>
+        <span style="float:right;margin-right:20px">
+            <a href="admin/Projects/edit_project.php?id=<?php echo $_GET['id']?>" class="btn btn-primary waves-effect waves-light"><i class="material-icons">edit</i>Edit</a>
+        </span>
+    </h2>
 
     <?php
     $sprints = $project->sprints;
@@ -68,7 +78,6 @@ $project = project::get_default_project1();
                                 <?php } ?>
                             </ul>
                         <?php endif; */?>
-
                     </li>
                 <?php } ?>
             </ul>
