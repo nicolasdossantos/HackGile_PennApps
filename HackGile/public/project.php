@@ -11,7 +11,7 @@
     }
 ?>
 
-<?php $page_title = 'HackGILE - ' . $project->name; ?>
+<?php $page_title = $project->name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div class="container teal lighten-4 z-depth-2">
