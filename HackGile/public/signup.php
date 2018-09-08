@@ -3,43 +3,45 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-    if(is_post_request()){
-        $username = $_POST['username'] || '';
-        $fname = $_POST['fname'] || '';
-        $lname = $_POST['lname'] || '';
-        $password = $_POST['password'] || '';
-        $confirmPassword = $_POST['confirmPassword'] || '';
-        header("Location: member.php");
-    }
+if(is_post_request()){
+    $email = $_POST['email'] || '';
+    $fname = $_POST['fname'] || '';
+    $lname = $_POST['lname'] || '';
+    $password = $_POST['password'] || '';
+    $confirmPassword = $_POST['confirmPassword'] || '';
+    $_SESSION['email'] = $email;
+    $_SESSION['logged_in'] = true;
+    header("Location: member.php");
+}
 ?>
 
-<div class="container">
-<div class="row">
-    <form method='POST' class="col s12" action="signup.php">
-        <h3>Sign Up for HACKGILE!</h3>
-        <div class="input-field col s12">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="E-mail">
-        </div>
-        <div class="input-field col s6">
-            <label for="fname">First Name</label>
-            <input type="text" class="form-control" id="fname" placeholder="First name">
-        </div>
-        <div class="input-field col s6">
-            <label for="lname">Last Name</label>
-            <input type="text" class="form-control" id="lname" placeholder="Last name">
-        </div>
-        <div class="input-field col s12">
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="input-field col s12">
-            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
-            <label for="confirmPassword" class="red-text" id="confirm-password-label" hidden>Passwords must match.</label>
-        </div>
+<div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
+    <div class="row">
+        <form method='POST' class="col s12" action="signup.php">
+            <h3>Sign Up for HACKGILE!</h3>
+            <div class="input-field col s12">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="E-mail">
+            </div>
+            <div class="input-field col s6">
+                <label for="fname">First Name</label>
+                <input type="text" class="form-control" name="fname" placeholder="First name">
+            </div>
+            <div class="input-field col s6">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" name="lname" placeholder="Last name">
+            </div>
+            <div class="input-field col s12">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="input-field col s12">
+                <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm password">
+                <label for="confirmPassword" class="red-text" id="confirm-password-label" hidden>Passwords must match.</label>
+            </div>
 
-        <button type="submit" class="btn btn-primary">Sign Up!</button>
-    </form>
-</div>
+            <button type="submit" class="btn btn-primary">Sign Up!</button>
+        </form>
+    </div>
 </div>
 
 <script>

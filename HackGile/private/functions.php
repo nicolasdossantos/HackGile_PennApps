@@ -35,6 +35,11 @@ function redirect_to($location) {
   exit;
 }
 
+function get_gravatar_url($email, $size){
+    $hash = md5(strtolower(trim(h($email))));
+    return "https://www.gravatar.com/avatar/". $hash . "?s=". $size . "&d=mp";
+}
+
 function is_post_request() {
   return $_SERVER['REQUEST_METHOD'] == 'POST';
 }

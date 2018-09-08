@@ -2,21 +2,26 @@
 
 <?php $page_title = 'HackGILE - Profile'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
-
 <?php
-$user = member::GetDefaultMember1();
-$gravatar_hash = md5(strtolower(trim(h($user->getEmail()))));
+    $user = member::GetDefaultMember1();
 ?>
 <div class="grey" style="height:15em;"></div>
+<div class="teal">
 <div class="container">
-    <div class="user-profile row">
-        <div class="col m3">
-            <?php echo "<img src=https://www.gravatar.com/avatar/". $gravatar_hash . "?s=180&d=mp>" ?>
+    <div class="row">
+        <div class="col m2">
+        <div class="user-profile user-picture">
+            <?php echo "<img src=" . get_gravatar_url($_SESSION['email'], "180") . ">" ?>
         </div>
-        <div class="col m9">
-            <?php echo "<h4>" . $user->getFullName() . "</h4>" ?>
+        </div>
+        <div class="col m10">
+            <div class="user-profile user-description">
+            <?php echo "<h4><strong>" . $user->getFullName() . "</strong></h4>" ?>
+            </div>
+        </div>
         </div>
     </div>
+</div>
 </div>
 <div class="container">
     <h2>

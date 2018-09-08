@@ -1,36 +1,29 @@
 <?php require_once('../private/initialize.php'); ?>
+
+<?php include(SHARED_PATH . '/public_header.php'); ?>
+
 <?php
 if(is_post_request()){
-    $inputUsername = mysqli_real_escape_string($_POST['username']);
-    $inputPassword = mysqli_real_escape_string($_POST['password']);
-
-    //Set up connection
-
-    if(mysqli_num_rows($sql) == 1) {
-        $row = mysqli_fetch_array($sql);
-        session_start();
-        $_SESSION['fname'] = $row['first_name'];
-        $_SESSION['logged'] = TRUE;
-        header("Location: member.php");
-        exit;
-    }
-    else{
-        header("Location: login.php");
-        exit;
-        }
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $_SESSION['email'] = $email;
+    $_SESSION['logged_in'] = true;
+    header("Location: member.php");
 }
 ?>
-<div class="login-box">
-    <form action="">
-        <h3>Login</h3>
-        <div class="form-group">
-            <label for="email">Email Address:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email"
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password"
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+<div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 100px;">
+    <div class="row">
+        <form method='POST' class="col s12" action="login.php">
+            <h3>Login to HackGile</h3>
+            <div class="input-field col s12">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="E-mail">
+            </div>
+            <div class="input-field col s12">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
 </div>
