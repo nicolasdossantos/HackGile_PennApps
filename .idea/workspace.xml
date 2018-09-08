@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7741ea34-77d1-418d-8e1c-23302e7c32f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HackGile/classes/member.php" beforeDir="false" afterPath="$PROJECT_DIR$/HackGile/classes/member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HackGile/classes/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/HackGile/classes/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HackGile/classes/sprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/HackGile/classes/sprint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HackGile/private/initialize.php" beforeDir="false" afterPath="$PROJECT_DIR$/HackGile/private/initialize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HackGile/private/shared/public_copyright_disclaimer.php" beforeDir="false" afterPath="$PROJECT_DIR$/HackGile/private/shared/public_copyright_disclaimer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HackGile/public/project_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/HackGile/public/project_page.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HackGile/classes/sprint.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -62,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HackGile/classes/project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-693">
-              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+            <state relative-caret-position="-710">
+              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -113,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HackGile/classes/member.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+            <state relative-caret-position="310">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
         </entry>
@@ -219,12 +223,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536368591434</updated>
       <workItem from="1536368592763" duration="8692000" />
-      <workItem from="1536401756083" duration="3049000" />
+      <workItem from="1536401756083" duration="3149000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3095000" />
+    <option name="totallyTimeSpent" value="3195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -287,28 +291,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HackGile/classes/sprint.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HackGile/classes/project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-693">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        <state relative-caret-position="-710">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HackGile/public/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-183" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HackGile/public/member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HackGile/public/project.php">
@@ -322,10 +319,17 @@
         <state relative-caret-position="-459" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HackGile/public/member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HackGile/classes/member.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+        <state relative-caret-position="310">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>

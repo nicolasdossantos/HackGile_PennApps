@@ -3,14 +3,13 @@
 class project
 {
 
-    public $id;
     public $name;
     public $description;
     public $max_members;
     public $git_link;
     public $hackathon_length;
     public $hackathon_name;
-    public $members = [];
+    public $members= array() ;
     public $sprints = [];
     public $tasks = [];
 
@@ -25,28 +24,38 @@ class project
 
     }
 
-    public function is_admin()
+    public function is_admin($member)
     {
+        if($member->is_admin){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function add_member($member)
+    {
+        $this->members[] = $member;
+    }
+
+    public function remove_member($member)
+    {
+        if (($key = array_search($member, $this->members)) !== false) {
+            unset($this->members[$key]);
+        }
 
     }
 
-    public function add_member()
+    public function add_admin($member)
     {
-
+        $member->is_admin = true;
     }
 
-    public function remove_member()
+    public function add_story($args)
     {
+        $new_story = new story($args);
 
-    }
-
-    public function add_admin()
-    {
-
-    }
-
-    public function add_story()
-    {
+        return $new_story;
 
     }
 
@@ -55,9 +64,10 @@ class project
         $this->max_members = $max_members;
     }
 
-    public function create_sprint()
+    public function create_sprint($name, $duration)
     {
-
+        $newSprint = new sprint($name,$duration);
+        return $newSprint;
     }
 
     public function number_of_sprints()
