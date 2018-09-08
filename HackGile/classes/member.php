@@ -64,8 +64,12 @@ class member extends Database
         return new Member($args);
     }
 
-    public function deleteMember()
+    public function deleteMember($member)
     {
-        //unset($this);
+
+        $member->email = '';
+        $member->fname = '';
+        $member->lname = '';
+
     }
 }
