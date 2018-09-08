@@ -12,6 +12,12 @@ if(is_post_request()){
     $_SESSION['email'] = $email;
     $_SESSION['logged_in'] = true;
     header("Location: member.php");
+    $sql = "INSERT INTO members (email, first_name, last_name, password) VALUES ("
+        . $email . ", " . $fname . ", " . $last_name . ", hash(\"md5\", " .
+        $password . "))";
+    error_log($sql);
+    $result = self::$database->query($sql);
+    return $result;
 }
 ?>
 
