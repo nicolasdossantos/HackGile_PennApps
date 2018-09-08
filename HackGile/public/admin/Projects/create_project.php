@@ -1,16 +1,19 @@
-<?php require_once('../private/initialize.php'); ?>
+<?php require_once('../../../private/initialize.php'); ?>
 
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
 if(is_post_request()){
-    $name = $_POST['name'] || '';
-    $desc = $_POST['desc'] || '';
-    $repo = $_POST['repo'] || '';
-    $max_members = $_POST['max_members'] || '';
-    $hackathon_name = $_POST['hackathon_name'] || '';
-    $hackathon_length = $_POST['hackathon_length'] || '';
+    $name = $_POST['name'] ?? '';
+    $desc = $_POST['description'] ?? '';
+    $repo = $_POST['git_link'] ?? '';
+    $max_members = $_POST['max_members'] ?? 5;
+    $hackathon_name = $_POST['hackathon_name'] ?? '';
+    $hackathon_length = $_POST['hackathon_length'] ?? 24;
 
+//    foreach($_POST as $key => $value){
+//        echo '<div>'.$key."--->".$value.'</div>';
+//    }
     //Do database stuff
 
     header("Location: project.php");
@@ -31,15 +34,15 @@ if(is_post_request()){
 
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="desc">Description</label>
-                    <textarea id="desc-text-area" name="desc" class="materialize-textarea" placeholder="Description (Optional)"></textarea>
+                    <label for="description">Description</label>
+                    <textarea id="desc-text-area" name="description" class="materialize-textarea" placeholder="Description (Optional)"></textarea>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="repo">Repository Link</label>
-                    <input type="url" class="form-control" name="repo" placeholder="Repo Link">
+                    <label for="git_link">Repository Link</label>
+                    <input type="url" class="form-control" name="git_link" placeholder="Repo Link">
                 </div>
             </div>
 
@@ -56,7 +59,7 @@ if(is_post_request()){
             <div class="row">
                 <div class="input-field col s8">
                     <label for="hackathon_name">Hackathon Name</label>
-                    <input type="text" class="form-control" name="hackatho_name" placeholder="Hackathon Name">
+                    <input type="text" class="form-control" name="hackathon_name" placeholder="Hackathon Name">
                 </div>
                 <div class="input-field col s4">
                     <label for="hackathon_length">Hackathon Length (Hours)</label>

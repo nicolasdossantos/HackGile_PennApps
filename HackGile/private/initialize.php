@@ -20,6 +20,8 @@
 
 
 
+
+
 // Load class definitions manually
   require_once('../classes/database.php');
   require_once('../classes/hackathon.php');

@@ -2,19 +2,19 @@
 
 class member extends Database
 {
-    static protected $table = 'members';
+    static protected $table_name = 'members';
     static protected $db_columns = ['id','email', 'first_name', 'last_name', 'is_admin'];
     public $id;
     public $email;
-    public $fname;
-    public $lname;
+    public $first_name;
+    public $last_name;
     public $is_admin;
 
     public function __construct($args = [])
     {
         $this->email = $args['email'] ?? '';
-        $this->fname = $args['fname'] ?? '';
-        $this->lname = $args['lname'] ?? '';
+        $this->first_name = $args['first_name'] ?? '';
+        $this->last_name = $args['last_name'] ?? '';
         $this->is_admin = $args['is_admin'??false];
     }
 
@@ -25,7 +25,7 @@ class member extends Database
 
     public function getFullName()
     {
-        return $this->fname . " " . $this->lname;
+        return $this->first_name . " " . $this->last_name;
     }
 
     public function getAssociatedProjects()
@@ -37,8 +37,8 @@ class member extends Database
     {
         $args = array(
             "email" => "ndefilippis98@gmail.com",
-            "fname" => "Nick",
-            "lname" => "DeFilippis",
+            "first_name" => "Nick",
+            "last_name" => "DeFilippis",
             "is_admin" =>true);
 
         return new Member($args);
@@ -48,8 +48,8 @@ class member extends Database
     {
         $args = array(
             "email" => "tuh36069@temple.edu",
-            "fname" => "Nicolas",
-            "lname" => "Dos Santos",
+            "first_name" => "Nicolas",
+            "last_name" => "Dos Santos",
             "is_admin" =>true);
         return new Member($args);
 
@@ -59,12 +59,13 @@ class member extends Database
     {
         $args = array(
             "email" => "tchin25@gmail.com",
-            "fname" => "Thomas",
-            "lname" => "Chin",
+            "first_name" => "Thomas",
+            "last_name" => "Chin",
             "is_admin" =>true);
         return new Member($args);
     }
 
+    //Rewrite it
     public function deleteMember($member)
     {
         $member->email = '';
