@@ -6,11 +6,18 @@
 <body>
 <p><?php
 
-//$args = ['email'=>'nicolas@icloud.com', 'fname'=>'Nick', 'lname'=>'Santos', 'is_admin' => '1'];
-//$member = new member($args);
-//
-//echo $member->email;
+$args = ['email'=>'nicolas@icloud.com', 'fname' => 'Nick', 'lname'=>'Santos','is_admin'=> 1];
+$member = new member($args);
 
+print_r($member);
+
+$result = $member->save();
+if($result){
+    echo "HELLO";
+
+}else{
+    echo "MEh";
+}
 
 ?></p>
 <p>hello</p>
