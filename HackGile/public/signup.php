@@ -11,10 +11,10 @@ if(is_post_request()){
     $lname = $_POST['lname'] || '';
     $password = $_POST['password'] || '';
     $confirmPassword = $_POST['confirmPassword'] || '';
-    $sql = 'INSERT INTO members (email, first_name, last_name, password) VALUES ("
-        . $email . ", " . $fname . ", " . $last_name . ", hash(\"md5\", " .
-        $password . "))';
-
+//    $sql = 'INSERT INTO members (email, first_name, last_name, password) VALUES ('
+//        . $email . ', ' . $fname . ', ' . $last_name . ', ' . 'hash("md5", ' .
+//        $password . '))';
+    $sql = "INSERT INTO members (email) VALUES (a@a.com)";
     $database->query($sql);
 
     $_SESSION['email'] = $email;

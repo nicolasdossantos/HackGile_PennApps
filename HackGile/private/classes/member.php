@@ -83,7 +83,7 @@ class member extends Database
     public function deleteMember($member)
     {
         $member->email = '';
-        $member->fname = '';
-        $member->lname = '';
+        $member->first_name = '';
+        $member->last_name = '';
     }
 }

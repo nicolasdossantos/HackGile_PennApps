@@ -1,7 +1,9 @@
 <?php
 
-class sprint
+class sprint extends Database
 {
+    static protected $table_name = 'sprints';
+    static protected $db_columns = ['id', 'duration'];
     public $name;
     public $duration; //total time
     public $stories = array(); //all tasks on project
@@ -15,16 +17,18 @@ class sprint
 
 
 
-    public function addStory($args)
+
+    public function add_story($args=[])
     {
         $this->doAddStory = true;
-        $this->stories[] = $args;
-        /*$sql = "INSERT INTO stories (priority, complete, name,
-            description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
-            $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
-            $_POST['sprintID'];
-        $result = self::$database->query($sql);
-        return $result;*/
+        $this->stories[] = new story($args);
+//        $sql = "INSERT INTO stories (priority, complete, name,
+//            description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
+//            $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
+//            $_POST['sprintID'];
+//        $result = $database->query($sql);
+        return;
+
 
     }
 

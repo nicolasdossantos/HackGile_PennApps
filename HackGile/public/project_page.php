@@ -1,4 +1,7 @@
 <?php require_once('../private/initialize.php'); ?>
+
+require_login();
+
 <html>
 <head>
     <title>TEST</title>

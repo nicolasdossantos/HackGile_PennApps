@@ -1,5 +1,7 @@
 <?php require_once('../private/initialize.php'); ?>
 
+require_login();
+
 <?php $page_title = 'HackGILE - Profile'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 <?php

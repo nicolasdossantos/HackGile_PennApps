@@ -1,7 +1,9 @@
 <?php
 
-class story
+class story extends Database
 {
+    static protected $table_name = 'stories';
+    static protected $db_columns = ['id', 'priority', 'complete', 'name', 'description'];
     public $substory = array();
     public $isComplete = false;
     public $isSubstory = false;
@@ -11,7 +13,7 @@ class story
     public $priority;
     public $members = array();
 
-    public function __construct($title, $description, $priority) {
+    public function __construct($args = []) {
         $this->title = $title ?? '';
         $this->description = $description ?? '';
         $this->priority = $priority ?? 0;

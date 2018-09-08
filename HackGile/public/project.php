@@ -1,5 +1,7 @@
 <?php require_once('../private/initialize.php'); ?>
 
+require_login();
+
 <?php
 $project = project::get_default_project1();
 ?>
@@ -39,7 +41,7 @@ $project = project::get_default_project1();
                             <?php } else { ?>
                                 <a action='claim' class='btn btn-primary'>Claim</a>
                                 <a action='assign' class='btn btn-primary'>Assign</a>
-                            <?php } ?>
+                            <?php  } ?>
                         <?php echo "</div></h6>" ?>
 
                         <?php echo "<p> $story->description</p>" ?>
