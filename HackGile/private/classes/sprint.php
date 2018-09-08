@@ -16,8 +16,6 @@ class sprint extends Database
     }
 
 
-
-
     public function add_story($title, $description, $priority)
     {
         $this->doAddStory = true;
@@ -29,8 +27,6 @@ class sprint extends Database
 //            $_POST['sprintID'];
 //        $result = $database->query($sql);
         return $newStory;
-
-
     }
 
 

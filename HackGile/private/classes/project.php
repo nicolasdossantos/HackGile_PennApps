@@ -6,7 +6,7 @@ class project extends Database
 
     static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members'];
 
-
+    public $id;
     public $name;
     public $description;
     public $max_members;
@@ -94,18 +94,24 @@ class project extends Database
         $story1_1 = $sprint1->add_story("Assess Knowledge", "Determine the technical skills and knowledge of each team member", 1);
         $story1_2 = $sprint1->add_story("Discuss Idea", "Discuss the ideas and goals for the final project", 1);
         $story1_3 = $sprint1->add_story("Determine Technologies", "Find the best suited technologies for this project", 1);
-
         $story1_1->add_member(member::GetDefaultMember1());
         $story1_1->add_member(member::GetDefaultMember2());
         $story1_1->add_member(member::GetDefaultMember3());
+        $story1_1->add_member(member::GetDefaultMember4());
         $story1_1->complete();
+
+
         $story1_2->add_member(member::GetDefaultMember1());
         $story1_2->add_member(member::GetDefaultMember2());
         $story1_2->add_member(member::GetDefaultMember3());
+        $story1_2->add_member(member::GetDefaultMember4());
         $story1_2->complete();
+
+
         $story1_3->add_member(member::GetDefaultMember1());
         $story1_3->add_member(member::GetDefaultMember2());
         $story1_3->add_member(member::GetDefaultMember3());
+        $story1_3->add_member(member::GetDefaultMember4());
         $story1_3->complete();
 
         $sprint2 = self::$default_project->create_sprint("Database Design", 2);
@@ -113,6 +119,12 @@ class project extends Database
         $story2_1 = $sprint2->add_story("Map out structure", "Write out the needed properties and how they'll be connected", 1);
         $story2_2 = $sprint2->add_story("Draft MySQL file", "Create sql script that creates the above table", 1);
         $story2_3 = $sprint2->add_story("Create Functions", "Mock up important functions that allows use to use the data in the database", 1);
+
+        $story2_1->add_member(member::GetDefaultMember2());
+        $story2_1->complete();
+        $story2_2->add_member(member::GetDefaultMember2());
+        $story2_2->complete();
+        //$story2_1->add_substory(($story2_2));
 
         $story2_1->add_member(member::GetDefaultMember2());
         $story2_1->complete();
@@ -132,6 +144,8 @@ class project extends Database
         $story4_1 = $sprint4->add_story("Create classes", "Create important php classes based on the database", 1);
         $story4_2 = $sprint4->add_story("Connect to frontend", "Connect the data to the frontend", 1);
 
+        $story3_1->complete();
+        $sprint4 = self::$default_project->create_sprint("Backend Conncetion", 4);
         $sprint5 = self::$default_project->create_sprint("Final Touches", 2);
 
         return self::$default_project;

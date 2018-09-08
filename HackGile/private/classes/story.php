@@ -13,6 +13,7 @@ class story extends Database
     public $priority;
     public $members = array();
 
+
     public function __construct($title, $description, $priority) {
         $this->title = $title ?? 'default title';
         $this->description = $description ?? 'default description';
