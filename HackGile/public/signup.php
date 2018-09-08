@@ -6,47 +6,58 @@
 
 if(is_post_request()){
 
-    $email = $_POST['email'] || '';
-    $fname = $_POST['fname'] || '';
-    $lname = $_POST['lname'] || '';
-    $password = $_POST['password'] || '';
-    $confirmPassword = $_POST['confirmPassword'] || '';
-//    $sql = 'INSERT INTO members (email, first_name, last_name, password) VALUES ('
-//        . $email . ', ' . $fname . ', ' . $last_name . ', ' . 'hash("md5", ' .
-//        $password . '))';
-    $sql = "INSERT INTO members (email) VALUES (a@a.com)";
-    $database->query($sql);
+    $email = $_POST['email'] ?? '';
+    $first_name = $_POST['first_name'] ?? '';
+    $last_name = $_POST['last_name'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirmPassword'] ?? '';
+
+    if($password !== $confirmPassword){
+        $statusCode = 400;
+        $statusMessage = "Passwords must match";
+        header("Location: signup.php");
+        header("Status: ".$statusCode." ".$statusMessage);
+    }
+
+
+    $sql = 'INSERT INTO members (email, first_name, last_name, hashed_password) VALUES ("'
+        . $email . '", "' . $first_name . '", "' . $last_name . '", "' . hash("md5", $password) . '");';
+
+//    $sql = "INSERT INTO members (email) VALUES (a@a.com)";
+    $result = $database->query($sql);
 
     $_SESSION['email'] = $email;
-    $_SESSION['fname'] = $fname;
-    $_SESSION['lname'] = $lname;
+    $_SESSION['fname'] = $first_name;
+    $_SESSION['lname'] = $last_name;
     $_SESSION['logged_in'] = true;
     header("Location: member.php");
-    return $result;
 }
 ?>
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
     <div class="row">
         <form method='POST' class="col s12" action="signup.php">
+            <?php if(isset($statusCode)) { ?>
+                <h6 id="warning" style="padding: 20px;" class="red"><i class="material-icons left">cancel</i><?php echo $statusMessage?></h6>
+            <?php } ?>
             <h3>Sign Up for HACKGILE!</h3>
             <div class="input-field col s12">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" placeholder="E-mail">
+                <input type="email" class="form-control" name="email" placeholder="E-mail" <?php if(isset($email)){ echo "value=".$email; }?>>
             </div>
             <div class="input-field col s6">
-                <label for="fname">First Name</label>
-                <input type="text" class="form-control" name="fname" placeholder="First name">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" name="first_name" placeholder="First name" <?php if(isset($first_name)){ echo "value=".$first_name; }?>>
             </div>
             <div class="input-field col s6">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" name="lname" placeholder="Last name">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Last name" <?php if(isset($last_name)){ echo "value=".$last_name; }?>>
             </div>
             <div class="input-field col s12">
-                <input type="password" class="form-control" name="password" placeholder="Password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>
             <div class="input-field col s12">
-                <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm password">
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
                 <label for="confirmPassword" class="red-text" id="confirm-password-label" hidden>Passwords must match.</label>
             </div>
 
@@ -59,7 +70,6 @@ if(is_post_request()){
     function checkPasswordLabel(){
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();
-        console.log(password2)
         if(password1 !== password2) {
             $('#confirm-password-label').show(250);
         }
@@ -74,6 +84,7 @@ if(is_post_request()){
 
     $(document).ready(function(){
         hideLabel();
+        $('#warning').delay(2000).hide(250);
         $("#confirmPassword").on("focus", checkPasswordLabel);
         $("#confirmPassword").on("keyup", checkPasswordLabel);
         $("#confirmPassword").on("focusout", hideLabel);
