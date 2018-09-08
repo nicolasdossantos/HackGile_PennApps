@@ -8,11 +8,11 @@ require_login();
 $user = member::GetDefaultMember1();
 ?>
 <div class="teal lighten-4" style="height:10em;"></div>
-<div class="teal">
+<div class="teal z-depth-2">
     <div class="container">
         <div class="row">
             <div class="col m2">
-                <div class="user-profile user-picture">
+                <div class="user-profile user-picture z-order-2" style="margin-bottom: 20px;" >
                     <?php echo "<img src=" . get_gravatar_url($_SESSION['email'], $_SESSION['fname'], $_SESSION['lname'], "180", false) . ">" ?>
                 </div>
             </div>

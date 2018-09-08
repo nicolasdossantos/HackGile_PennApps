@@ -18,7 +18,7 @@
 
 <header>
     <nav>
-        <div class="nav-wrapper teal">
+        <div class="nav-wrapper teal z-depth-1">
             <div class="container">
                 <a href="<?php echo url_for('/index.php'); ?>" class="brand-logo">
                     <img class="responsive-img" src="<?php echo url_for('/images/logo.svg'); ?>">

@@ -13,7 +13,7 @@ $project = project::get_default_project1();
     <h2 class="center z-depth-2 teal white-text">
         <?php echo $project->name ?>
         <span style="float:right;margin-right:20px">
-            <a href="admin/Projects/edit_project.php" class="btn btn-primary waves-effect waves-light"><i class="material-icons">edit</i>Edit</a>
+            <a href="admin/Projects/edit_project.php?id=<?php echo $_GET['id']?>" class="btn btn-primary waves-effect waves-light"><i class="material-icons">edit</i>Edit</a>
         </span>
     </h2>
 
