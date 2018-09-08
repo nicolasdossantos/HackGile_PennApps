@@ -2,13 +2,14 @@
 
 class sprint
 {
-<<<<<<< HEAD
+    public $name;
     public $duration; //total time
     public $stories = array(); //all tasks on project
     public $countdown; //time remaining
     public $doAddStory = false;
 
     public function __construct($args = []) {
+        $this->name = $args['name'] ?? '';
         $this->duration =  $args['duration'] ?? '';
         $this->countdown = $args['countdown'] ?? '';
         $this->stories = $args['stories'] ?? '';
@@ -27,9 +28,4 @@ class sprint
 
     }
 
-
-
-=======
-    public $number;
->>>>>>> ff75ed50646c96d5aa247a54662054829a282273
 }
