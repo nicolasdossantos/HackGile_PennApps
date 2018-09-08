@@ -5,12 +5,14 @@ class member
     protected $email;
     protected $fname;
     protected $lname;
+    public $is_admin;
 
     public function __construct($args = [])
     {
         $this->email = $args['email'] ?? '';
         $this->fname = $args['fname'] ?? '';
         $this->lname = $args['lname'] ?? '';
+        $this->is_admin = $args['is_admin'??false];
     }
 
     public function getEmail()
@@ -33,16 +35,19 @@ class member
         $args = array(
             "email" => "ndefilippis98@gmail.com",
             "fname" => "Nick",
-            "lname" => "DeFilippis");
+            "lname" => "DeFilippis",
+            "is_admin" =>true);
+
         return new Member($args);
     }
 
     public static function GetDefaultMember2()
     {
         $args = array(
-            "email" => "tuf92449@temple.edu",
+            "email" => "tuh36069@temple.edu",
             "fname" => "Nicolas",
-            "lname" => "Dos Santos");
+            "lname" => "Dos Santos",
+            "is_admin" =>true);
         return new Member($args);
     }
 
@@ -51,12 +56,17 @@ class member
         $args = array(
             "email" => "tchin25@gmail.com",
             "fname" => "Thomas",
-            "lname" => "Chin");
+            "lname" => "Chin",
+            "is_admin" =>true);
         return new Member($args);
     }
 
-    public function deleteMember()
+    public function deleteMember($member)
     {
-        unset($this);
+
+        $member->email = '';
+        $member->fname = '';
+        $member->lname = '';
+
     }
 }
