@@ -1,3 +1,4 @@
+<?php require_once('../private/initialize.php'); ?>
 <?php
 if(is_post_request()){
     $inputUsername = mysqli_real_escape_string($_POST['username']);
@@ -15,7 +16,7 @@ if(is_post_request()){
     }
     else{
         header("Location: login.php");
-        exit
+        exit;
         }
 }
 ?>
