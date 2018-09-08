@@ -63,7 +63,6 @@ class member
 
     public function deleteMember($member)
     {
-
         $member->email = '';
         $member->fname = '';
         $member->lname = '';
