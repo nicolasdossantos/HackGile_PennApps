@@ -8,7 +8,7 @@ class Database
     public $errors = [];
 
 
-    function confirm_db_connect($connection)
+    static function confirm_db_connect($connection)
     {
         if ($connection->connect_errno) {
             $msg = "Database connection failed: ";
@@ -18,7 +18,7 @@ class Database
         }
     }
 
-    public function db_connect()
+    public static function db_connect()
     {
 
         $db_host = 'localhost';

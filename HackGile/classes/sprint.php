@@ -10,7 +10,7 @@ class sprint
 
     public function __construct($name, $duration) {
         $this->name = $name ?? '';
-        $this->duration =  $duration ?? 0;
+        $this->duration =  60 * 60 * $duration ?? 0;
     }
 
     public function add_story($args=[]) {
@@ -23,7 +23,12 @@ class sprint
     }
 
     public function alertTime() {
-
+        $hours = $this->duration / 60 / 60;
+        $minutes = $this->duration / 60 % 60;
+        return sprintf("%2d:%02d", $hours, $minutes);
     }
 
+    public function getStatusColor(){
+
+    }
 }
