@@ -3,7 +3,10 @@
 class project extends Database
 {
     static protected $table_name = 'projects';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7a5260c6be51da659bcbf0de7f5e173f7de96714
     static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members'];
 
 
