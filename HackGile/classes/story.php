@@ -48,14 +48,10 @@ class story
         $task->parentStory = $this;
     }
 
-    public function delete_story(){
-        //unset($this);
-    }
-
     function __destruct()
     {
         foreach($this->substory as $story){
-            $story->delete_story();
+            unset($story);
         }
     }
 }
