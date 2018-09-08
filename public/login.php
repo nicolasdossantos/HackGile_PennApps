@@ -15,7 +15,7 @@ if(is_post_request()){
     }
     else{
         header("Location: login.php");
-        exit
+        exit;
         }
 }
 ?>
