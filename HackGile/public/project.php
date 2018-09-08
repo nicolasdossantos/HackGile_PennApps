@@ -20,10 +20,10 @@ $project = project::get_default_project1();
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header">
                     <?php echo "<h4> Sprint " . $sprint_index . "/" . $project->number_of_sprints() . ": " . $sprint->name
-                        . "<div class='secondary-content teal-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"
+                        . "<div class='secondary-content black-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"
                     ?>
                     <div class="progress" style="height:10px;">
-                        <div class="determinate teal" style="width: 70%">
+                        <div class="determinate teal" style="width:" <?php get_completion_percentage() ?>"%">
                         </div>
                     </div>
                 </li>
@@ -32,10 +32,28 @@ $project = project::get_default_project1();
 
                 <?php foreach($stories as $story) { ?>
                     <li class="collection-item">
-                        <?php echo "<h6 style='font-weight:bold;'>$story->title
-                        <div class='secondary-content'><a href='claim' class='btn btn-primary'>Claim</a></div></h6>"
-                        ?>
+                        <?php echo "<h6 style='font-weight:bold;'>$story->title" ?>
+                        <?php echo "<div class='secondary-content'>" ?>
+                            <?php if($story->isComplete) { ?>
+                                <a class='btn green btn-flat'>Complete<i class="material-icons">check</i></a>
+                            <?php } else { ?>
+                                <a action='claim' class='btn btn-primary'>Claim</a>
+                                <a action='assign' class='btn btn-primary'>Assign</a>
+                            <?php } ?>
+                        <?php echo "</div></h6>" ?>
+
                         <?php echo "<p> $story->description</p>" ?>
+
+                        <?php $members = $story->members ?>
+                        <?php foreach($members as $member) { ?>
+                            <?php echo
+                                "<img 
+                                    style='border-radius:50%; display:inline;' 
+                                    src=" . get_gravatar_url($member->email, $member->fname, $member->lname, 35, false) .
+                                ">"
+                            ?>
+                        <?php } ?>
+
 
                         <?php /*$substories = $story->substory ?>
                         <?php if(!empty($substories)) : ?>

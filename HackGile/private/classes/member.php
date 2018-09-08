@@ -33,36 +33,50 @@ class member extends Database
         return [project::get_default_project1()];
     }
 
+    private static $member1 = null;
     public static function GetDefaultMember1()
     {
+        if(self::$member1 !== null){
+            return self::$member1;
+        }
         $args = array(
             "email" => "ndefilippis98@gmail.com",
             "first_name" => "Nick",
             "last_name" => "DeFilippis",
             "is_admin" =>true);
 
-        return new Member($args);
+        self::$member1 = new Member($args);
+        return self::$member1;
     }
 
+    private static $member2 = null;
     public static function GetDefaultMember2()
     {
+        if(self::$member2 !== null){
+            return self::$member2;
+        }
         $args = array(
             "email" => "tuh36069@temple.edu",
             "first_name" => "Nicolas",
             "last_name" => "Dos Santos",
             "is_admin" =>true);
-        return new Member($args);
-
+        self::$member2 = new Member($args);
+        return self::$member2;
     }
 
+    private static $member3 = null;
     public static function GetDefaultMember3()
     {
+        if(self::$member3 !== null){
+            return self::$member3;
+        }
         $args = array(
             "email" => "tchin25@gmail.com",
             "first_name" => "Thomas",
             "last_name" => "Chin",
             "is_admin" =>true);
-        return new Member($args);
+        self::$member3 = new Member($args);
+        return self::$member3;
     }
 
     //Rewrite it
