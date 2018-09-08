@@ -2,6 +2,7 @@
 
 class sprint
 {
+<<<<<<< HEAD
     public $duration; //total time
     public $stories = array(); //all tasks on project
     public $countdown; //time remaining
@@ -28,4 +29,7 @@ class sprint
 
 
 
+=======
+    public $number;
+>>>>>>> ff75ed50646c96d5aa247a54662054829a282273
 }
