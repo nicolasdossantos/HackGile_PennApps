@@ -3,6 +3,7 @@
 class project extends Database
 {
     static protected $table_name = 'projects';
+
     static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members'];
 
 
@@ -122,6 +123,7 @@ class project extends Database
         $story2_3->add_member(member::GetDefaultMember1());
         $story2_3->add_member(member::GetDefaultMember3());
 
+
         $sprint3 = self::$default_project->create_sprint("Frontend Design", 4);
         $story3_1 = $sprint3->add_story(["title" => "Draw Mockups", "description" => "Draw Mockups of each screen on paper", "priority" => 1]);
         $story3_1->complete();
@@ -131,7 +133,7 @@ class project extends Database
         $sprint4 = self::$default_project->create_sprint("Backend Conncetion", 4);
         $story4_1 = $sprint4->add_story(["title" => "Create classes", "description" => "Create important php classes based on the database", "priority" => 1]);
         $story4_2 = $sprint4->add_story(["title" => "Connect to frontend", "description" => "Connect the data to the frontend", "priority" => 1]);
-
+        
         $sprint5 = self::$default_project->create_sprint("Final Touches", 2);
 
         return self::$default_project;
