@@ -2,53 +2,63 @@
 
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
-
-<!--if(!isset($_GET['id'])) {-->
-<!--redirect_to(url_for('/staff/bicycles/index.php'));-->
-<!--}-->
-<!--$id = $_GET['id'];-->
-<!--$bicycle = Bicycle::find_by_id($id);-->
-<!--if($bicycle == false) {-->
-<!--redirect_to(url_for('/staff/bicycles/index.php'));-->
-<!--}-->
-<!---->
-<!--if(is_post_request()) {-->
-<!---->
-<!--// Save record using post parameters-->
-<!--$args = $_POST['bicycle'];-->
-<!--$bicycle->merge_attributes($args);-->
-<!--$result = $bicycle->save();-->
-<!---->
-<!--if($result === true) {-->
-<!--$session->message('The bicycle was updated successfully.');-->
-<!--redirect_to(url_for('/staff/bicycles/show.php?id=' . $id));-->
-<!--} else {-->
-<!--// show errors-->
-
-
-
-
-
-
 <?php
-if(is_post_request()){
-    $name = $_POST['name'] || '';
-    $desc = $_POST['desc'] || '';
-    $repo = $_POST['repo'] || '';
-    $max_members = $_POST['max_members'] || '';
-    $hackathon_name = $_POST['hackathon_name'] || '';
-    $hackathon_length = $_POST['hackathon_length'] || '';
 
-    //Do database stuff
 
-    header("Location: ../project.php");
+if(!isset($_GET['id'])) {
+  redirect_to('../../project.php');
 }
+
+$id = $_GET['id'];
+
+$project= project::find_by_id($id);
+
+
+if($project == false) {
+  redirect_to('../../project.php');
+}
+
+
+if(is_post_request()) {
+
+    $name = $_POST['name'] ?? '';
+    $desc = $_POST['description'] ?? '';
+    $repo = $_POST['git_link'] ?? '';
+    $max_members = $_POST['max_members'] || 5;
+    $hackathon_name = $_POST['hackathon_name'] ?? '';
+    $hackathon_length = $_POST['hackathon_length'] || 24;
+
+    $args = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members);
+
+
+
+
+  $project->merge_attributes($args);
+  $result = $project->save();
+
+//  if($result === true) {
+//    $session->message('The bicycle was updated successfully.');
+//    redirect_to(url_for('/staff/bicycles/show.php?id=' . $id));
+//  } else {
+//    // show errors
+//  }
+
+} else {
+
+  // display the form
+
+}
+
+
+
+
+
 ?>
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
     <div class="row">
-        <form method='POST' class="col s12" action="edit_project.php">
-            <h3>Edit Project</h3>
+        <form action="edit_project.php" method='POST' class="col s12">
+            <h3>Create a New Project</h3>
 
             <div class="row">
                 <div class="input-field col s12">
@@ -59,15 +69,15 @@ if(is_post_request()){
 
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="desc">Description</label>
-                    <textarea id="desc-text-area" name="desc" class="materialize-textarea" placeholder="Description (Optional)"></textarea>
+                    <label for="description">Description</label>
+                    <textarea id="desc-text-area" name="description" class="materialize-textarea" placeholder="Description (Optional)"></textarea>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <label for="repo">Repository Link</label>
-                    <input type="url" class="form-control" name="repo" placeholder="Repo Link">
+                    <label for="git_link">Repository Link</label>
+                    <input type="url" class="form-control" name="git_link" placeholder="Repo Link">
                 </div>
             </div>
 
@@ -84,7 +94,7 @@ if(is_post_request()){
             <div class="row">
                 <div class="input-field col s8">
                     <label for="hackathon_name">Hackathon Name</label>
-                    <input type="text" class="form-control" name="hackatho_name" placeholder="Hackathon Name">
+                    <input type="text" class="form-control" name="hackathon_name" placeholder="Hackathon Name">
                 </div>
                 <div class="input-field col s4">
                     <label for="hackathon_length">Hackathon Length (Hours)</label>
@@ -96,12 +106,15 @@ if(is_post_request()){
                 <div class="input-field col s6">
                     <a action="add_sprint" class="btn btn-primary">Add Sprint</a>
                 </div>
+
             </div>
             <hr>
             <button type="submit" class="btn btn-primary right">Submit Event</button>
         </form>
     </div>
 </div>
+
+
 
 <script>
     function checkPasswordLabel(){
@@ -126,4 +139,4 @@ if(is_post_request()){
         $("#confirmPassword").on("keyup", checkPasswordLabel);
         $("#confirmPassword").on("focusout", hideLabel);
     });
-</script>
+</script></script>
