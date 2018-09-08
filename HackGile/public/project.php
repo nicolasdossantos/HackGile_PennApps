@@ -23,7 +23,7 @@ $project = project::get_default_project1();
                         . "<div class='secondary-content black-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"
                     ?>
                     <div class="progress" style="height:10px;">
-                        <div class="determinate teal" style="width:" <?php get_completion_percentage() ?>"%">
+                        <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
                         </div>
                     </div>
                 </li>
@@ -49,7 +49,7 @@ $project = project::get_default_project1();
                             <?php echo
                                 "<img 
                                     style='border-radius:50%; display:inline;' 
-                                    src=" . get_gravatar_url($member->email, $member->fname, $member->lname, 35, false) .
+                                    src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
                                 ">"
                             ?>
                         <?php } ?>

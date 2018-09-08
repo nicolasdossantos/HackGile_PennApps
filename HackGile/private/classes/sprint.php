@@ -15,16 +15,16 @@ class sprint
 
 
 
-    public function addStory($args=[])
+    public function addStory($args)
     {
         $this->doAddStory = true;
-        $this->stories[] = new story($args);
-        $sql = "INSERT INTO stories (priority, complete, name, 
+        $this->stories[] = $args;
+        /*$sql = "INSERT INTO stories (priority, complete, name,
             description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
             $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
             $_POST['sprintID'];
         $result = self::$database->query($sql);
-        return $result;
+        return $result;*/
 
     }
 
@@ -39,7 +39,26 @@ class sprint
         return sprintf("%2d:%02d", $hours, $minutes);
     }
 
-    public function getStatusColor(){
+    public function getCompletionPercentage() {
+        $completeCount = 0;
+        foreach($this->stories as $story){
+            if($story->isComplete){
+                $completeCount++;
+            }
+        }
+        if(count($this->stories) == 0) {
+            return 100;
+        }
+        $percentage  = (100 * $completeCount / count($this->stories));
+        return $percentage;
+    }
 
+    public function getStatusColor(){
+        if($this->getCompletionPercentage() == 100){
+            return "green";
+        }
+        else{
+            return "teal";
+        }
     }
 }
