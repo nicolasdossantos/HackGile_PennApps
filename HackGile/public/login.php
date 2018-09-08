@@ -3,6 +3,11 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
+
+if($_SESSION['logged_in']){
+    header('Location: member.php');
+}
+
 if(is_post_request()){
     $email = mysqli_real_escape_string($database, $_POST['email']);
     $hashed_password = hash("md5", mysqli_real_escape_string($database, $_POST['password']));

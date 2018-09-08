@@ -4,16 +4,16 @@
 <?php
     $user = member::find_by_id($_SESSION['id']);
 ?>
-<div class="teal lighten-4" style="height:10em;"></div>
+<div class="teal lighten-4" style="height:12em;"></div>
 <div class="teal z-depth-2">
     <div class="container">
-        <div class="row">
-            <div class="col m2">
-                <div class="user-profile user-picture z-order-2" style="margin-bottom: 20px;" >
-                    <?php echo "<img src=" . get_gravatar_url($user->email, $user->first_name, $user->last_name, "180", true) . ">" ?>
+        <div class="row" style="margin-bottom:150px;">
+            <div class="col m3">
+                <div class="user-profile user-picture" style="height: 11em;" >
+                    <?php echo "<img class='z-depth-2' src=" . get_gravatar_url($user->email, $user->first_name, $user->last_name, "180", true) . ">" ?>
                 </div>
             </div>
-            <div class="col m10">
+            <div class="col m9">
                 <div class="user-profile user-description">
                     <?php echo "<h4 style='font-weight:bold;'>" . $user->getFullName() . "</h4>" ?>
                 </div>

@@ -158,10 +158,16 @@ table#inventory tr td, table#inventory tr th {
 }
 
 .user-profile {
-  margin-top: -5em;
+  margin-top: -10em;
 }
 
 .user-picture img{
   border-radius: 50%;
   border-color: #009688;
+  border-style: solid;
+  border-width: 10px;
+}
+
+.user-descritpion {
+  margin-top: -12em;
 }
