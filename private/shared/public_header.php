@@ -18,13 +18,19 @@
     <nav>
         <div class="nav-wrapper teal">
             <div class="container">
-            <a href="<?php echo url_for('/index.php'); ?>" class="brand-logo">
-                <img class="responsive-img" src="<?php echo url_for('/images/logo.svg'); ?>">
-            </a>
-            <ul id="nav-mobile" class="right">
-                <li><a class="waves-effect waves-light btn">Login</a></li>
-                <li><a href="<?php echo url_for('/signup.php'); ?>" class="waves-effect waves-light btn">Sign Up</a></li>
-            </ul>
+                <a href="<?php echo url_for('/index.php'); ?>" class="brand-logo">
+                    <img class="responsive-img" src="<?php echo url_for('/images/logo.svg'); ?>">
+                </a>
+                <ul id="nav-mobile" class="right">
+                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+                        <li><a href="<?php echo url_for('/member.php'); ?>">Profile</a></li>
+                        <li><a href="<?php echo url_for('/logout.php'); ?>" class="waves-effect waves-light btn">Logout</a></li>
+                    <?php else : ?>
+                        <li><a class="waves-effect waves-light btn">Login</a></li>
+                        <li><a href="<?php echo url_for('/signup.php'); ?>" class="waves-effect waves-light btn">Sign Up</a></li>
+                    <?php endif; ?>
+                </ul>
+
             </div>
         </div>
     </nav>

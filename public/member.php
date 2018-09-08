@@ -1,52 +1,31 @@
 <?php require_once('../private/initialize.php'); ?>
 
-<?php $page_title = 'Inventory'; ?>
+<?php $page_title = 'HackGILE - Profile'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
-<div id="main">
-
-  <div id="page">
-    <div class="intro">
-      <img class="inset" src="<?php echo url_for('/images/AdobeStock_55807979_thumb.jpeg') ?>" />
-      <h2>Our Inventory of Used Bicycles</h2>
-      <p>Choose the bike you love.</p>
-      <p>We will deliver it to your door and let you try it before you buy it.</p>
-    </div>
-
-    <table id="inventory">
-      <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Category</th>
-        <th>Gender</th>
-        <th>Color</th>
-        <th>Price</th>
-        <th>&nbsp;</th>
-      </tr>
-
 <?php
-
-$bikes = Bicycle::find_all();
-
+    $user = member::GetDefaultMember1();
+    $gravatar_hash = md5(strtolower(trim(h($user->getEmail()))));
 ?>
-      <?php foreach($bikes as $bike) { ?>
-      <tr>
-        <td><?php echo h($bike->brand); ?></td>
-        <td><?php echo h($bike->model); ?></td>
-        <td><?php echo h($bike->year); ?></td>
-        <td><?php echo h($bike->category); ?></td>
-        <td><?php echo h($bike->gender); ?></td>
-        <td><?php echo h($bike->color); ?></td>
-        <td><?php echo h(money_format('$%i', $bike->price)); ?></td>
-        <td><a href="detail.php?id=<?php echo $bike->id; ?>">View</a></td>
-      </tr>
-      <?php } ?>
-
-    </table>
-
-  </div>
-
+<div class="grey" style="height:15em;"></div>
+<div class="user-profile">
+    <?php echo "<img src=https://www.gravatar.com/avatar/". $gravtar_hash . "?d=mp>" ?>
 </div>
+<div class="container">
+    <h2>
+        Projects
+    </h2>
+    <?php
+        $projects = Projects::find_all_for_user($username);
+    ?>
+    <?php if(empty($projects)): ?>
+        <p>No projects yet</p>
+    <?php else: ?>
+        <?php foreach($projects as $project){ ?>
+        <div class="row">
+            <p><?php echo h($project->title); ?></p>
+        </div>
+        <?php } ?>
+    <?php endif; ?>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

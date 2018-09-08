@@ -31,20 +31,15 @@
   // require_once('classes/bicycle.class.php');
 
   // -> All classes in directory
-  foreach(glob('classes/*.class.php') as $file) {
+  foreach(glob('classes/*.php') as $file) {
     require_once($file);
   }
 
   // Autoload class definitions
   function my_autoload($class) {
     if(preg_match('/\A\w+\Z/', $class)) {
-      include('classes/' . $class . '.class.php');
+      include('classes/' . $class . '.php');
     }
   }
   spl_autoload_register('my_autoload');
-
-  $database = db_connect();
-  DatabaseObject::set_database($database);
-
-
 ?>
