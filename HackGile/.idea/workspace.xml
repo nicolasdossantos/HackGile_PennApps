@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04105af0-6e72-4ddd-b035-6149d6b46915" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/private/classes/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/classes/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/private/classes/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/classes/project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/private/classes/sprint.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/classes/sprint.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/classes/story.php" beforeDir="false" afterPath="$PROJECT_DIR$/private/classes/story.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/Projects/create_project.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/Projects/create_project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/signup.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +76,6 @@
               <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#h4#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h6#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,29 +126,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/private/classes/sprint.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/private/classes/project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/private/classes/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="127" column="58" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
+            <state relative-caret-position="1500">
+              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
             </state>
           </provider>
         </entry>
@@ -185,12 +174,12 @@
         <option value="$PROJECT_DIR$/classes/member.php" />
         <option value="$PROJECT_DIR$/public/member.php" />
         <option value="$PROJECT_DIR$/classes/database.php" />
-        <option value="$PROJECT_DIR$/private/classes/sprint.php" />
         <option value="$PROJECT_DIR$/private/classes/story.php" />
         <option value="$PROJECT_DIR$/public/project.php" />
         <option value="$PROJECT_DIR$/public/signup.php" />
-        <option value="$PROJECT_DIR$/private/classes/database.php" />
+        <option value="$PROJECT_DIR$/private/classes/sprint.php" />
         <option value="$PROJECT_DIR$/private/classes/project.php" />
+        <option value="$PROJECT_DIR$/private/classes/database.php" />
       </list>
     </option>
   </component>
@@ -282,12 +271,12 @@
       <updated>1536414843378</updated>
       <workItem from="1536414844455" duration="10824000" />
       <workItem from="1536428646937" duration="1312000" />
-      <workItem from="1536432236428" duration="5033000" />
+      <workItem from="1536432236428" duration="5325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17169000" />
+    <option name="totallyTimeSpent" value="17461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -356,13 +345,6 @@
     <entry file="file://$PROJECT_DIR$/private/classes/hackathon.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/private/classes/story.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/private/classes/member.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306">
@@ -390,7 +372,6 @@
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="n#style#0;n#div#0;n#h4#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -402,24 +383,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/private/classes/database.php">
+    <entry file="file://$PROJECT_DIR$/private/classes/sprint.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="127" column="58" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
+        <state relative-caret-position="-418">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/private/classes/story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/private/classes/project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/private/classes/sprint.php">
+    <entry file="file://$PROJECT_DIR$/private/classes/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="1500">
+          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
         </state>
       </provider>
     </entry>

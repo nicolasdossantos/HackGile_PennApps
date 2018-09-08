@@ -17,6 +17,7 @@ class sprint extends Database
 
 
 
+
     public function add_story($args=[])
     {
         $this->doAddStory = true;
@@ -27,6 +28,7 @@ class sprint extends Database
 //            $_POST['sprintID'];
 //        $result = $database->query($sql);
         return;
+
 
     }
 
@@ -41,7 +43,26 @@ class sprint extends Database
         return sprintf("%2d:%02d", $hours, $minutes);
     }
 
-    public function getStatusColor(){
+    public function getCompletionPercentage() {
+        $completeCount = 0;
+        foreach($this->stories as $story){
+            if($story->isComplete){
+                $completeCount++;
+            }
+        }
+        if(count($this->stories) == 0) {
+            return 100;
+        }
+        $percentage  = (100 * $completeCount / count($this->stories));
+        return $percentage;
+    }
 
+    public function getStatusColor(){
+        if($this->getCompletionPercentage() == 100){
+            return "green";
+        }
+        else{
+            return "teal";
+        }
     }
 }
