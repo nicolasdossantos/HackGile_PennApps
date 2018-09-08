@@ -1,4 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
+<?php
+$args = ['Test','Test','Test','TEst'];
+$test = new Projects($args) ?>
 
 <?php require_login(); ?>
 
@@ -11,6 +14,7 @@
     <ul>
       <li><a href="<?php echo url_for('/staff/bicycles/index.php'); ?>">Bicycles</a></li>
       <li><a href="<?php echo url_for('/staff/admins/index.php'); ?>">Admins</a></li>
+      <li><?php echo $test->name; ?></li>
     </ul>
   </div>
 

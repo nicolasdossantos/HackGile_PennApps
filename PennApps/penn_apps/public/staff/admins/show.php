@@ -1,11 +1,12 @@
 <?php require_once('../../../private/initialize.php'); ?>
-<?php require_login(); ?>
+
 
 <?php
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
-$admin = Admin::find_by_id($id);
+$project = Projects::find_by_id($id);
+echo "HELLO";
 
 ?>
 
@@ -18,25 +19,25 @@ $admin = Admin::find_by_id($id);
 
   <div class="admin show">
 
-    <h1>Admin: <?php echo h($admin->full_name()); ?></h1>
+
 
     <div class="attributes">
       <dl>
-        <dt>First name</dt>
-        <dd><?php echo h($admin->first_name); ?></dd>
+        <dt>Project Name</dt>
+        <dd><?php echo h($project->name); ?></dd>
       </dl>
       <dl>
-        <dt>Last name</dt>
-        <dd><?php echo h($admin->last_name); ?></dd>
+        <dt>Description</dt>
+        <dd><?php echo h($project->description); ?></dd>
       </dl>
       <dl>
-        <dt>Email</dt>
-        <dd><?php echo h($admin->email); ?></dd>
-      </dl>
-      <dl>
-        <dt>Username</dt>
-        <dd><?php echo h($admin->username); ?></dd>
-      </dl>
+<!--        <dt>Email</dt>-->
+<!--        <dd>--><?php //echo h($admin->email); ?><!--</dd>-->
+<!--      </dl>-->
+<!--      <dl>-->
+<!--        <dt>Username</dt>-->
+<!--        <dd>--><?php //echo h($admin->username); ?><!--</dd>-->
+<!--      </dl>-->
     </div>
 
   </div>
