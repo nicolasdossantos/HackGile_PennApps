@@ -6,7 +6,7 @@ class project extends Database
 
     static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members'];
 
-
+    public $id;
     public $name;
     public $description;
     public $max_members;

@@ -1,9 +1,14 @@
-<?php require_once('../private/initialize.php'); ?>
-
+<?php require_once('../private/initialize.php');
 //require_login();
+?>
 
 <?php
-$project = project::get_default_project1();
+    if( isset($_GET['id'])) {
+        $project = project::find_by_id($_GET['id']);
+    }
+    else{
+        $project = project::get_default_project1();
+    }
 ?>
 
 <?php $page_title = 'HackGILE - ' . $project->name; ?>

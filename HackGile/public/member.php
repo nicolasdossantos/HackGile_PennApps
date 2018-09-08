@@ -32,7 +32,7 @@ $user = member::GetDefaultMember1();
                 <h2>Projects</h2>
             </li>
             <?php
-            $projects = $user->getAssociatedProjects();
+            $projects = project::find_all();
             ?>
             <?php if(empty($projects)): ?>
                 <li class="collection-item">
@@ -41,11 +41,13 @@ $user = member::GetDefaultMember1();
             <?php else: ?>
                 <?php foreach($projects as $project){ ?>
                     <li class="collection-item">
-                        <a href="<?php echo url_for('/project.php'); ?>">
-                            <div class="row">
-                                <p><?php echo h($project->name); ?></p>
-                            </div>
-                        </a>
+                        <?php echo "
+                            <a href=" . url_for('/project.php') . "?id=" . $project->id . ">";
+                        ?>
+
+                        <div class="row">
+                            <p><?php echo h($project->name); ?></p>
+                        </div>
                     </li>
                 <?php } ?>
             <?php endif; ?>
