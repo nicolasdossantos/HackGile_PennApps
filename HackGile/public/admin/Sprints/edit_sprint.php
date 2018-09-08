@@ -3,7 +3,7 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-if(is_post_request()){
+if(is_post_request()){ //TODO Change to edit
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
