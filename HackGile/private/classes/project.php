@@ -1,7 +1,10 @@
 <?php
 
-class project
+class project extends Database
 {
+    static protected $table_name = 'projects';
+    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members'];
+
 
     public $name;
     public $description;
@@ -15,7 +18,6 @@ class project
 
     public function __construct($args = [])
     {
-        $this->id = $args['id'] ?? 0;
         $this->name = $args['name'] ?? '';
         $this->description = $args['description'] ?? '';
         $this->max_members = $args['max_members'] ?? 5;
