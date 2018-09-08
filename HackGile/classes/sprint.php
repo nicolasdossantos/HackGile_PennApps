@@ -13,9 +13,9 @@ class sprint
         $this->duration =  60 * 60 * $duration ?? 0;
     }
 
-    public function add_story($args=[]) {
+    public function add_story($story) {
         //$this->doAddStory = true;
-        $this->stories[] = new story($args);
+        $this->stories[] = $story;
     }
 
     public function startSprint($duration) {

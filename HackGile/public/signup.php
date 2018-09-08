@@ -4,12 +4,14 @@
 
 <?php
 if(is_post_request()){
-    $email = $_POST['email'] || '';
-    $fname = $_POST['fname'] || '';
-    $lname = $_POST['lname'] || '';
-    $password = $_POST['password'] || '';
-    $confirmPassword = $_POST['confirmPassword'] || '';
+    $email = $_POST['email'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
     $_SESSION['email'] = $email;
+    $_SESSION['fname'] = $fname;
+    $_SESSION['lname'] = $lname;
     $_SESSION['logged_in'] = true;
     header("Location: member.php");
 }

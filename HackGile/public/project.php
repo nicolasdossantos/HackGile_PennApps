@@ -32,8 +32,23 @@ $project = project::get_default_project1();
 
                 <?php foreach($stories as $story) { ?>
                     <li class="collection-item">
-                        <?php echo "<h6 style='font-weight:bold;'>$story->title<div class='secondary-content'>Claim</div></h6>" ?>
+                        <?php echo "<h6 style='font-weight:bold;'>$story->title
+                        <div class='secondary-content'><a href='claim' class='btn btn-primary'>Claim</a></div></h6>"
+                        ?>
                         <?php echo "<p> $story->description</p>" ?>
+
+                        <?php /*$substories = $story->substory ?>
+                        <?php if(!empty($substories)) : ?>
+                            <ul class="collection z-depth-1">
+                                <?php foreach($substories as $substory) { ?>
+                                    <li class="collection-item">
+                                        <?php echo "<h6 style='font-weight:bold;'>$substory->title<div class='secondary-content'>Claim</div></h6>" ?>
+                                        <?php echo "<p> $substory->description</p>" ?>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        <?php endif; */?>
+
                     </li>
                 <?php } ?>
             </ul>

@@ -42,8 +42,7 @@ class story
         $this->isComplete = $temp;
     }
 
-    public function add_substory($args=[]){
-        $task = new story($args);
+    public function add_substory($task){
         $this->substory[] = $task;
         $task->isSubstory = true;
         $task->parentStory = $this;

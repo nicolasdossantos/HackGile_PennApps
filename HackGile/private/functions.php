@@ -35,9 +35,14 @@ function redirect_to($location) {
   exit;
 }
 
-function get_gravatar_url($email, $size){
+function get_gravatar_url($email, $fname, $lname, $size, $useMysteryPerson){
     $hash = md5(strtolower(trim(h($email))));
-    return "https://www.gravatar.com/avatar/". $hash . "?s=". $size . "&d=mp";
+    if($useMysteryPerson) {
+        return "https://www.gravatar.com/avatar/" . $hash . "?s=" . $size . "&d=mp";
+    }
+    else{
+        return "https://www.gravatar.com/avatar/" . $hash . "?s=" . $size . "&d=https%3A%2F%2Fui-avatars.com%2Fapi%2F/".$fname."+".$lname."/".$size;
+    }
 }
 
 function is_post_request() {

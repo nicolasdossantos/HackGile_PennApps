@@ -7,6 +7,8 @@ if(is_post_request()){
     $email = $_POST['email'];
     $password = $_POST['password'];
     $_SESSION['email'] = $email;
+    $_SESSION['fname'] = "Nick";
+    $_SESSION['lname'] = "DeFilippis";
     $_SESSION['logged_in'] = true;
     header("Location: member.php");
 }
