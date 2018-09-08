@@ -54,6 +54,7 @@ class project
     public function add_story($args)
     {
         $new_story = new story($args);
+        $this->tasks[] = $new_story;
 
         return $new_story;
 

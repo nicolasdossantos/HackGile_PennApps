@@ -42,12 +42,13 @@ class story
         $this->isComplete = $temp;
     }
 
-    public function add_substory($task){
+    public function add_substory($args=[]){
+        $task = new story($args);
         $this->substory[] = $task;
         $task->isSubstory = true;
         $task->parentStory = $this;
     }
-
+    
     function __destruct()
     {
         //foreach($this->substory as $story){

@@ -13,15 +13,17 @@ class sprint
         $this->duration =  $duration ?? 0;
     }
 
-    public function addStory($story) {
+
+    public function addStory($args=[]) {
         $this->doAddStory = true;
-        $this->stories[] = $story;
+        $this->stories[] = new story($args);
         $sql = "INSERT INTO stories (priority, complete, name, 
             description) VALUES(" . $_POST['priority'] . " , " . 0 . " , " .
             $_POST['name'] . " , " . $_POST['description'] . ") WHERE sprintId = " .
             $_POST['sprintID'];
         $result = self::$database->query($sql);
         return $result;
+        
 
     }
 
