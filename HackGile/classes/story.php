@@ -50,8 +50,8 @@ class story
 
     function __destruct()
     {
-        foreach($this->substory as $story){
-            unset($story);
+        //foreach($this->substory as $story){
+            //unset($story);
         }
-    }
+    //}
 }

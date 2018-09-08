@@ -1,10 +1,12 @@
 <?php
 
-class member
+class member extends Database
 {
-    protected $email;
-    protected $fname;
-    protected $lname;
+    static protected $table_name = 'members';
+    static protected $db_columns = ['email', 'first_name', 'last_name', 'is_admin'];
+    public $email;
+    public $fname;
+    public $lname;
     public $is_admin;
 
     public function __construct($args = [])
@@ -49,6 +51,7 @@ class member
             "lname" => "Dos Santos",
             "is_admin" =>true);
         return new Member($args);
+
     }
 
     public static function GetDefaultMember3()
