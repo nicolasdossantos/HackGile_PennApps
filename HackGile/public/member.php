@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col m2">
         <div class="user-profile user-picture">
-            <?php echo "<img src=" . get_gravatar_url($_SESSION['email'], "180") . ">" ?>
+            <?php echo "<img src=" . get_gravatar_url($_SESSION['email'], $_SESSION['fname'], $_SESSION['lname'], "180", false) . ">" ?>
         </div>
         </div>
         <div class="col m10">

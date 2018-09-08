@@ -5,6 +5,7 @@
 <?php
 
 if(is_post_request()){
+
     $email = $_POST['email'] || '';
     $fname = $_POST['fname'] || '';
     $lname = $_POST['lname'] || '';
@@ -13,9 +14,12 @@ if(is_post_request()){
     $sql = 'INSERT INTO members (email, first_name, last_name, password) VALUES ("
         . $email . ", " . $fname . ", " . $last_name . ", hash(\"md5\", " .
         $password . "))';
-    printf($sql);
+
     $database->query($sql);
+
     $_SESSION['email'] = $email;
+    $_SESSION['fname'] = $fname;
+    $_SESSION['lname'] = $lname;
     $_SESSION['logged_in'] = true;
     header("Location: member.php");
     return $result;

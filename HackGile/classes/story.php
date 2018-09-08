@@ -10,10 +10,10 @@ class story
     public $description;
     public $priority;
 
-    public function __construct($args=[]) {
-        $this->title = $args['title'] ?? '';
-        $this->description = $args['description'] ?? '';
-        $this->priority = $args['priority'] ?? 0;
+    public function __construct($title, $description, $priority) {
+        $this->title = $title ?? '';
+        $this->description = $description ?? '';
+        $this->priority = $priority ?? 0;
     }
 
     public function edit_story_title($title){
@@ -42,8 +42,7 @@ class story
         $this->isComplete = $temp;
     }
 
-    public function add_substory($args=[]){
-        $task = new story($args);
+    public function add_substory($task){
         $this->substory[] = $task;
         $task->isSubstory = true;
         $task->parentStory = $this;
