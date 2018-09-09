@@ -17,7 +17,8 @@ if (is_post_request()) {
     $priority = $_POST['priority'] ?? '';
 
     $story = new story($desc,$priority,$projectId,$name);
-    $story->save();
+    $result = $story->save();
+
 
     redirect_to("../../project.php?id=".$_POST['id']);
 }
