@@ -23,8 +23,6 @@ class project extends Database
         $this->hackathon = $args['hackathon'] ?? '';
         $this->hackathon_length = $args['hackathon_duration'] ?? 24;
 
-
-
     }
 
     public function is_admin($member)
@@ -57,14 +55,6 @@ class project extends Database
     public function set_max_number_members($max_members)
     {
         $this->max_members = $max_members;
-    }
-
-    public function create_sprint($name, $duration)
-    {
-        $newSprint = new sprint($name,$duration);
-        array_push($this->sprints, $newSprint);
-
-        return $newSprint;
     }
 
     public function number_of_sprints()

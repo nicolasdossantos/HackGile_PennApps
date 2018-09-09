@@ -9,6 +9,20 @@
     else{
         $project = project::get_default_project1();
     }
+
+    if( is_post_request() ){
+        $email = $_POST['email'];
+        $project = project::find_by_id($_POST['id']);
+
+        $sql = "SELECT * from users WHERE email='$email'";
+        $result = member::find_by_sql($sql);
+
+        if(count($result) == 1){
+            $user = $result[0];
+            $sql = "UPDATE TABLE members SET ";
+            //$database->query($sql);
+        }
+    }
 ?>
 
 <?php $page_title = $project->name; ?>
@@ -18,13 +32,33 @@
     <h2 class="center z-depth-2 teal white-text">
         <?php echo $project->name ?>
         <span style="float:right;margin-right:20px">
-            <a href="admin/Projects/edit_project.php?id=<?php echo $_GET['id']?>" class="btn btn-primary waves-effect waves-light"><i class="material-icons">edit</i>Edit</a>
+            <a href="admin/Projects/edit_project.php?id=<?php echo $_GET['id']?>" class="btn btn-primary waves-effect waves-light"><i class="material-icons left">edit</i>Edit</a>
         </span>
     </h2>
 
+    <div class="row">
+        <form action="project.php" method="POST">
+        <div class="col s3">
+            <input type='email' name='email'>
+            <label for="email">Member Email</label>
+        </div>
+        <div class="col s2">
+            <input name="id" value="<?php echo $project->id ?>" hidden>
+            <button type="submit" class="btn btn-primary waves waves-light">Add Member</button>
+        </div>
+        </form>
+        <div class="col s2 offset-s2">
+            <?php echo "<a class='btn btn-primary waves-effect waves-light' href='" . url_for("/admin/Sprints/create_sprint.php") . "?id=" . $_GET['id'] . "'>Create Sprint</a>" ?>
+        </div>
+        <div class="col s2">
+            <?php echo "<a class='btn btn-primary waves-effect waves-light' href='" . url_for("/admin/Stories/create_story.php") . "?id=" . $_GET['id'] . "'>Create Story</a>" ?>
+        </div>
+    </div>
+
     <?php
-    $sprints = $project->sprints;
-    $sprint_index = 1;
+        $sql = "SELECT * from sprints WHERE project_id = '".$project->id."'";
+        $sprints = sprint::find_by_sql($sql);
+        $sprint_index = 1;
     ?>
 
     <?php foreach($sprints as $sprint) { ?>
@@ -47,7 +81,7 @@
                         <?php echo "<h6 style='font-weight:bold;'>$story->title" ?>
                         <?php echo "<div class='secondary-content'>" ?>
                             <?php if($story->isComplete) { ?>
-                                <a class='btn green btn-flat'>Complete<i class="material-icons">check</i></a>
+                                <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
                             <?php } else { ?>
                                 <a action='claim' class='btn btn-primary'>Claim</a>
                                 <a action='assign' class='btn btn-primary'>Assign</a>
@@ -80,6 +114,9 @@
                         <?php endif; */?>
                     </li>
                 <?php } ?>
+                <li class="collection-header center-align">
+                    <?php echo "<a href=". url_for('/sprint.php') ."?id=". $sprint->id . " class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
+                </li>
             </ul>
         </div>
         <?php $sprint_index++; } ?>

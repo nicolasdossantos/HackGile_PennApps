@@ -21,6 +21,7 @@ if(is_post_request()){
         $statusMessage = "Passwords must match";
         header("Location: signup.php");
         header("Status: ".$statusCode." ".$statusMessage);
+        exit();
     }
 
     $sql = 'SELECT id FROM members WHERE email="'.$email.'"';
@@ -30,15 +31,16 @@ if(is_post_request()){
         $statusMessage = "An account with that username already exists.";
         header("Location: signup.php");
         header("Status: ".$statusCode." ".$statusMessage);
+        exit();
     }
 
     $sql = 'INSERT INTO members (email, first_name, last_name, hashed_password) VALUES ("'
         . $email . '", "' . $first_name . '", "' . $last_name . '", "' . hash("md5", $password) . '");';
-
+    echo $sql;
 //    $sql = "INSERT INTO members (email) VALUES (a@a.com)";
     if($database->query($sql)){
         $last_id = $database->insert_id;
-        $_SESSION['id'] = $last_id;
+        $_SESSION['user-id'] = $last_id;
         $_SESSION['logged_in'] = true;
         header("Location: member.php");
     }

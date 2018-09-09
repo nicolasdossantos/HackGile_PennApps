@@ -25,7 +25,7 @@ if(is_post_request()){
     $sprint->save();
 
 
-    //redirect_to("create_sprint.php");
+    //redirect_to("create_story.php");
 }
 ?>
 

@@ -17,7 +17,7 @@ if(is_post_request()){
 
     if (count($result) == 1){
         $value = $result[0];
-        $_SESSION['id'] = $value->id;
+        $_SESSION['user-id'] = $value->id;
         $_SESSION['logged_in'] = true;
         header("Location: member.php");
     }
