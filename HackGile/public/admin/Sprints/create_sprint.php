@@ -14,9 +14,8 @@ if(is_post_request()){
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
-    $sprint = $project->create_sprint($name, $dur);
+    $sprint = new sprint($name, $dur, $project->id);
     $sprint->save();
-    $project->save();
     //redirect_to("../../project.php?id=".$id);
 }
 ?>

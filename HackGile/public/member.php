@@ -43,19 +43,20 @@ $user = member::find_by_id($_SESSION['user-id']);
                         <div class="row">
                             <h5 style="color: black; font-weight:bold;"><?php echo h($project->name); ?>
                                 <?php echo "
+                                <a href=".url_for('/admin/Projects/delete_project.php')."?id=".$project->id ." class='secondary-content btn btn-primary waves waves-light red'>
+                                Delete Project
+                                </a>
                                 <a href=".url_for('/project.php')."?id=".$project->id ." class='secondary-content btn btn-primary waves waves-light'>
                                 View Project
-                                </a>"?>
+                                </a>
+                                "?>
                             </h5>
-                            <?php $members = $project->members ?>
-                            <?php foreach($members as $member) { ?>
-                                <?php echo
+                                <?php /*echo
                                     "<img 
                                     style='border-radius:50%; display:inline;' 
                                     src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
                                     ">"
-                                ?>
-                            <?php } ?>
+                                */?>
                             <p style="color: black"><?php echo h($project->description); ?></p>
                         </div>
                     </li>

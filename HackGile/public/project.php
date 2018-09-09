@@ -48,7 +48,7 @@
         </div>
         </form>
         <div class="col s2 offset-s2">
-            <?php echo "<a class='btn btn-primary waves-effect waves-light' href='" . url_for("/admin/Sprints/create_story.php") . "?id=" . $_GET['id'] . "'>Create Sprint</a>" ?>
+            <?php echo "<a class='btn btn-primary waves-effect waves-light' href='" . url_for("/admin/Sprints/create_sprint.php") . "?id=" . $_GET['id'] . "'>Create Sprint</a>" ?>
         </div>
         <div class="col s2">
             <?php echo "<a class='btn btn-primary waves-effect waves-light' href='" . url_for("/admin/Stories/create_story.php") . "?id=" . $_GET['id'] . "'>Create Story</a>" ?>
@@ -56,8 +56,9 @@
     </div>
 
     <?php
-    $sprints = $project->sprints;
-    $sprint_index = 1;
+        $sql = "SELECT * from sprints WHERE project_id = '".$project->id."'";
+        $sprints = sprint::find_by_sql($sql);
+        $sprint_index = 1;
     ?>
 
     <?php foreach($sprints as $sprint) { ?>

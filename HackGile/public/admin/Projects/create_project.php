@@ -9,9 +9,10 @@ if(is_post_request()){
     $repo = $_POST['git_link'] ?? '';
     $max_members = $_POST['max_members'] || 5;
     $hackathon_name = $_POST['hackathon_name'] ?? '';
-    $hackathon_length = $_POST['hackathon_length'] || 24;
+    $hackathon_duration = $_POST['hackathon_length'] || 24;
 
-    $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members, 'hackathon'=>$hackathon_name, 'hackathon_duration'=>$hackathon_length);
+    $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members, 'hackathon_name'=>$hackathon_name,
+        'hackathon_duration'=>$hackathon_duration);
     $project = new project($arr);
     $project->save();
 
@@ -22,7 +23,7 @@ if(is_post_request()){
 
     //Do database stuff
 
-    //redirect_to("../Sprints/create_sprint.php?id=".$project->id);
+    redirect_to("../Sprints/create_sprint.php?id=".$project->id);
 }
 ?>
 

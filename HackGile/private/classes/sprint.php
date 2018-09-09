@@ -3,17 +3,19 @@
 class sprint extends Database
 {
     static protected $table_name = 'sprints';
-    static protected $db_columns = ['id', 'name', 'duration'];
+    static protected $db_columns = ['id', 'name', 'duration', 'project_id'];
     public $id;
     public $name;
     public $duration; //total time
     public $stories = array(); //all tasks on project
+    public $project_id;
     public $countdown; //time remaining
     public $doAddStory = false;
 
-    public function __construct($name, $duration) {
+    public function __construct($name, $duration, $project_id) {
         $this->name = $name ?? '';
-        $this->duration =  60 * 60 * $duration ?? 0;
+        $this->duration =  sprintf("%02d:00:00", $duration);
+        $this->project_id = $project_id;
     }
 
 

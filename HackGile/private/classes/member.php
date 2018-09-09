@@ -3,19 +3,20 @@
 class member extends Database
 {
     static protected $table_name = 'members';
-    static protected $db_columns = ['id','email', 'first_name', 'last_name', 'is_admin'];
+    static protected $db_columns = ['id','email', 'first_name', 'last_name', 'hashed_password', 'project_id'];
     public $id;
     public $email;
     public $first_name;
     public $last_name;
-    public $is_admin;
+    public $project_id;
+
 
     public function __construct($args = [])
     {
         $this->email = $args['email'] ?? '';
         $this->first_name = $args['first_name'] ?? '';
         $this->last_name = $args['last_name'] ?? '';
-        $this->is_admin = $args['is_admin'] ?? false;
+
     }
 
     public function getEmail()
@@ -42,8 +43,7 @@ class member extends Database
         $args = array(
             "email" => "ndefilippis98@gmail.com",
             "first_name" => "Nick",
-            "last_name" => "DeFilippis",
-            "is_admin" =>true);
+            "last_name" => "DeFilippis");
 
         self::$member1 = new Member($args);
         return self::$member1;
@@ -58,8 +58,8 @@ class member extends Database
         $args = array(
             "email" => "tuh36069@temple.edu",
             "first_name" => "Nicolas",
-            "last_name" => "Dos Santos",
-            "is_admin" =>true);
+            "last_name" => "Dos Santos"
+        );
         self::$member2 = new Member($args);
         return self::$member2;
     }
@@ -73,8 +73,8 @@ class member extends Database
         $args = array(
             "email" => "tchin25@gmail.com",
             "first_name" => "Thomas",
-            "last_name" => "Chin",
-            "is_admin" =>true);
+            "last_name" => "Chin"
+        );
         self::$member3 = new Member($args);
         return self::$member3;
     }
@@ -88,8 +88,7 @@ class member extends Database
         $args = array(
             "email" => "angelaweiber@temple.edu",
             "first_name" => "Angela",
-            "last_name" => "Weiber",
-            "is_admin" =>true);
+            "last_name" => "Weiber");
         self::$member4 = new Member($args);
         return self::$member4;
     }

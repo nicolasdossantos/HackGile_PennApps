@@ -4,18 +4,15 @@ class project extends Database
 {
     static protected $table_name = 'projects';
 
-    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon','hackathon_length'];
+    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon','hackathon_duration'];
 
     public $id;
     public $name;
     public $description;
     public $max_members;
     public $git_link;
-    public $hackathon_length;
+    public $hackathon_duration;
     public $hackathon;
-    public $members= array() ;
-    public $sprints = [];
-    public $tasks = [];
 
     public function __construct($args = [])
     {
@@ -24,7 +21,7 @@ class project extends Database
         $this->max_members = $args['max_members'] ?? 5;
         $this->git_link = $args['git_link'] ?? '';
         $this->hackathon = $args['hackathon'] ?? '';
-        $this->hackathon_length = $args['hackathon_length'] ?? 24;
+        $this->hackathon_length = $args['hackathon_duration'] ?? 24;
 
     }
 
@@ -58,14 +55,6 @@ class project extends Database
     public function set_max_number_members($max_members)
     {
         $this->max_members = $max_members;
-    }
-
-    public function create_sprint($name, $duration)
-    {
-        $newSprint = new sprint($name,$duration);
-        array_push($this->sprints, $newSprint);
-
-        return $newSprint;
     }
 
     public function number_of_sprints()
