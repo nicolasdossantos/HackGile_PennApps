@@ -30,11 +30,14 @@ if(is_get_request()) {
     }
 }
 ?>
+<script src="timer.js"></script>
 <div class="container">
     <div class="row">
         <ul class="collection with-header z-depth-1">
             <li class="collection-header">
-                <?php echo "<h4>" . $sprint->name . "<div class='secondary-content black-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"?>
+                <?php echo "<h4> Sprint " . $sprint->name
+                    . "<div class='secondary-content black-text' style='padding-right:10px;' id='countdown'></div><script>t = new timer(\"". $sprint->alertTime() ."\",'countdown');</script></h4>"
+                ?>
                 <div class="progress" style="height:10px;">
                     <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
                     </div>
@@ -54,6 +57,17 @@ if(is_get_request()) {
                         <?php if($story->priority == 3){ echo "red lighten-3"; }?>">
                     <?php echo "<h6 style='font-weight:bold;'>$story->name" ?>
                     <?php echo "<div class='secondary-content'>" ?>
+
+                    <?php if($story->claimed_by != 0) { ?>
+                        <?php
+                        $member = member::find_by_id($story->claimed_by);
+                        echo
+                            "<img
+                                style='border-radius:50%; display:inline;margin-right:40px;'
+                                src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
+                            ">";
+                    } ?>
+
                     <?php if($story->complete) { ?>
                         <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
                     <?php } else { ?>

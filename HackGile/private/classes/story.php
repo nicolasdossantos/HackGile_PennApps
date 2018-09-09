@@ -22,6 +22,7 @@ class story extends Database
         $this->priority = $arr['priority'] ?? 3;
         $this->project_id = $arr['project_id'] ?? 0;
         $this->description = $arr['description'] ?? '';
+        $this->claimed_by = $arr['claimed_by'] ?? 0;
         $this->complete = $arr['complete'] ?? 0;
         $this->sprint_id = $arr['sprint_id'] ?? 0;
     }

@@ -31,8 +31,9 @@ if( is_post_request() ){
 
 <?php $page_title = $project->name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
-<script src="timer.js"></script>
+
 <div class="container teal lighten-4 z-depth-2">
+    <script src="timer.js"></script>
     <h2 class="center z-depth-2 teal white-text">
         <?php echo $project->name ?>
         <span style="float:right;margin-right:20px">
@@ -71,7 +72,7 @@ if( is_post_request() ){
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header">
                     <?php echo "<h4> Sprint " . $sprint_index . "/" . $number_of_sprints . ": " . $sprint->name
-                        . "<div class='secondary-content black-text' style='padding-right:10px;' id='".$sprint_index."'></div><script>t".$sprint_index." = new timer(". strtotime($sprint->alertTime()) .",'". $sprint_index ."');</script></h4>"
+                        . "<div class='secondary-content black-text' style='padding-right:10px;'>". $sprint->alertTime() ."</div></h4>"
                     ?>
                     <div class="progress" style="height:10px;">
                         <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
@@ -80,24 +81,33 @@ if( is_post_request() ){
                 </li>
 
                 <?php
-                    $sql = "SELECT * from stories WHERE sprint_id='". $sprint->id ."'";
-                    $stories = story::find_by_sql($sql);
+                $sql = "SELECT * from stories WHERE sprint_id='". $sprint->id ."'";
+                $stories = story::find_by_sql($sql);
                 ?>
 
                 <?php foreach($stories as $story) { ?>
                     <li class="collection-item">
                         <?php echo "<h6 style='font-weight:bold;'>$story->name" ?>
                         <?php echo "<div class='secondary-content'>" ?>
-                            <?php if($story->complete) { ?>
-                                <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
-                            <?php } else { ?>
-                                <a action='claim' class='btn btn-primary'>Claim</a>
-                            <?php  } ?>
+                        <?php if($story->complete) { ?>
+                            <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
+                        <?php } else if($story->claimed_by != 0){ ?>
+                            <?php
+                            $member = member::find_by_id($story->claimed_by);
+                            echo
+                                "<img
+                                style='border-radius:50%; display:inline;'
+                                src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
+                                ">";
+                            ?>
+                        <?php } else { ?>
+                            <a class='btn btn-primary claim-story' id="claim-<?php echo $story->id?>">Claim</a>
+                        <?php  } ?>
                         <?php echo "</div></h6>" ?>
 
                         <?php echo "<p> $story->description</p>" ?>
                     </li>
-                    <?php } ?>
+                <?php } ?>
                 <li class="collection-header center-align">
                     <?php $stories = story::find_all(); ?>
                     <select class="story-dropdown">
@@ -110,16 +120,18 @@ if( is_post_request() ){
                     </select>
                 </li>
                 <li class="collection-header center-align">
-                    <?php echo "<a href='#' ?id='". $sprint->id . "' class='btn btn-primary btn-large green' onclick='t".$sprint_index.".startTimer();'>Start Sprint</a>" ?>
+                    <?php echo "<a href='sprint.php?id=".$sprint->id."' class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
                 </li>
             </ul>
         </div>
         <?php $sprint_index++; } ?>
+    <!--
     <h5 class="center teal-text" style="font-weight:bold;">24:00 / 36:00</h5>
     <div class="progress" style="height:15px;">
         <div class="determinate teal" style="width: 70%">
         </div>
     </div>
+    -->
 </div>
 
 <script>
@@ -134,6 +146,15 @@ if( is_post_request() ){
         var storyVal = inputValue.split("-")[0];
         var sprintVal = inputValue.split("-")[1];
         $.post('add_story.php', {storyValue: storyVal, sprintValue: sprintVal}, function(data){
+            location.reload();
+        })
+    });
+    $('.claim-story').click(function(){
+        console.log("HEY")
+        var storyVal = $(this).attr('id').split("-")[1];
+        console.log(storyVal);
+        var userVal = <?php echo $_SESSION['user-id'] ?>;
+        $.post('claim_story.php', {storyValue: storyVal, userId: userVal}, function(data){
             location.reload();
         })
     });
