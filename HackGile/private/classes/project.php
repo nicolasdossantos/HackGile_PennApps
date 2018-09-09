@@ -47,6 +47,14 @@ class project extends Database
 
     }
 
+    public function create_sprint($name, $duration)
+    {
+        $newSprint = new sprint($name,$duration);
+        array_push($this->sprints, $newSprint);
+
+        return $newSprint;
+    }
+
     public function add_admin($member)
     {
         $member->is_admin = true;
