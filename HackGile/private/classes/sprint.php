@@ -14,7 +14,7 @@ class sprint extends Database
 
     public function __construct($args=[]) {
         $this->name = $args['name'] ?? '';
-        $this->duration = strtotime(sprintf("%02d:00:00", ($args['duration'] ?? 0)));
+        $this->duration = sprintf("%02d:00:00", ($args['duration'] ?? 0));
         $this->project_id = $args['project_id'] ?? '';
     }
 
