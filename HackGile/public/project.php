@@ -71,7 +71,7 @@
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header">
                     <?php echo "<h4> Sprint " . $sprint_index . "/" . $number_of_sprints . ": " . $sprint->name
-                        . "<div class='secondary-content black-text' style='padding-right:10px;' id='$i'></div>". " t".$i." = new timer(". strtotime($sprint->alertTime()) ."," . $i .")" ."</h4>"
+                        . "<div class='secondary-content black-text' style='padding-right:10px;' id='$i'></div>". " t".$i." = new timer(". "strtotime(".$sprint->alertTime().")" .",'" . $i ."');" ."</h4>"
                     ?>
                     <div class="progress" style="height:10px;">
                         <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
@@ -131,7 +131,7 @@
                     </select>
                 </li>
                 <li class="collection-header center-align">
-                    <?php echo "<a href=''# ?id='". $sprint->id . "' class='btn btn-primary btn-large green' onclick='t".$i.".startTimer()'>Start Sprint</a>" ?>
+                    <?php echo "<a href='#' ?id='". $sprint->id . "' class='btn btn-primary btn-large green' onclick='t".$i.".startTimer();'>Start Sprint</a>" ?>
                 </li>
             </ul>
         </div>
@@ -151,7 +151,3 @@
 </script>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
-
-
-
-
