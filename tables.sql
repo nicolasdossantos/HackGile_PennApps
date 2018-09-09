@@ -24,7 +24,7 @@ CREATE TABLE `members` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `hashed_password` varchar(255) NOT NULL,
-  `project_id` int(8) NOT NULL,
+  `project_id` int(8),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`project_id`) REFERENCES projects(`id`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -51,7 +51,7 @@ CREATE TABLE `stories` (
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `claimed_by`  varchar(255) NOT NULL,
-  `sprint_id`  int(8) NOT NULL,
+  `sprint_id`  int(8),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`sprint_id`) REFERENCES sprints(`id`) 
 
