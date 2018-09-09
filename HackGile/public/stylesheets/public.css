@@ -157,10 +157,6 @@ table#inventory tr td, table#inventory tr th {
   float: left;
 }
 
-.user-profile {
-  margin-top: -10em;
-}
-
 .user-picture img{
   border-radius: 50%;
   border-color: #009688;

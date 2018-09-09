@@ -17,7 +17,7 @@ if(is_post_request()){
 
     //Do database stuff
 
-    //redirect_to("create_sprint.php");
+    redirect_to("../Sprints/create_sprint.php");
 }
 ?>
 

@@ -165,8 +165,7 @@ class Database
     {
         // A new record will not have an ID yet
         if (isset($this->id)) {
-            die("DAMMIT");
-            //return $this->update();
+            return $this->update();
         } else {
             return $this->create();
         }

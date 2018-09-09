@@ -4,26 +4,22 @@
 
 <?php
 
-
-if(!isset($_GET['id'])) {
-  redirect_to('../../signup.php');
+$project = null;
+if(is_get_request()){
+    if(!isset($_GET['id'])) {
+        redirect_to('../../signup.php');
+    }
+    $id = $_GET['id'];
+    $project = project::find_by_id($id);
+    if ($project == false) {
+        redirect_to('../../index.php');
+    }
 }
-
-$id = $_GET['id'];
-
-$project = project::find_by_id($id);
-
-
-
-if($project == false) {
-  redirect_to('../../index.php');
-}
-
 
 if(is_post_request()) {
 
     $id = $_POST['id'];
-    $project=project::find_by_id($id);
+    $project = project::find_by_id($id);
 
     $name = $_POST['name'] ?? '';
     $desc = $_POST['description'] ?? '';
@@ -32,19 +28,13 @@ if(is_post_request()) {
     $hackathon_name = $_POST['hackathon_name'] ?? '';
     $hackathon_length = $_POST['hackathon_length'] ?? 24;
 
-    $args = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members);
+    $args = array('name' => $name, 'description' => $desc, 'git_link' => $repo, 'max_members' => $max_members);
 
+    $project->merge_attributes($args);
+    $result = $project->save();
+    redirect_to("../../project.php?id=" . $id);
+}
 
-
-
-  $project->merge_attributes($args);
-  $result = $project->save();
-
-
-
-  if(!$result){
-      die("HAHAHAHAH");
-  }
 
 //  if($result === true) {
 //    $session->message('The bicycle was updated successfully.');
@@ -52,17 +42,6 @@ if(is_post_request()) {
 //  } else {
 //    // show errors
 //  }
-
-} else {
-
-  // display the form
-
-}
-
-
-
-
-
 ?>
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
