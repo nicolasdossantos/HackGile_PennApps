@@ -6,7 +6,7 @@
 
 
 if(!isset($_GET['id'])) {
-  redirect_to('../../project.php');
+  redirect_to('../../signup.php');
 }
 
 $id = $_GET['id'];
@@ -14,17 +14,21 @@ $id = $_GET['id'];
 $project= project::find_by_id($id);
 
 
+
 if($project == false) {
-  redirect_to('../../project.php');
+  redirect_to('../../index.php');
 }
 
 
 if(is_post_request()) {
 
+    $id = $_POST['id'];
+    $project=project::find_by_id($id);
+
     $name = $_POST['name'] ?? '';
     $desc = $_POST['description'] ?? '';
     $repo = $_POST['git_link'] ?? '';
-    $max_members = $_POST['max_members'] || 5;
+    $max_members = $_POST['max_members'] ?? 5;
     $hackathon_name = $_POST['hackathon_name'] ?? '';
     $hackathon_length = $_POST['hackathon_length'] ?? 24;
 
@@ -35,6 +39,12 @@ if(is_post_request()) {
 
   $project->merge_attributes($args);
   $result = $project->save();
+
+
+
+  if(!$result){
+      die("HAHAHAHAH");
+  }
 
 //  if($result === true) {
 //    $session->message('The bicycle was updated successfully.');
@@ -109,6 +119,7 @@ if(is_post_request()) {
 
             </div>
             <hr>
+                <input type="text" name="id" value='<?php echo "$project->id"?>' hidden>
             <button type="submit" class="btn btn-primary right">Submit Event</button>
         </form>
     </div>
