@@ -3,14 +3,23 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-$id = $_GET['id'];
-$sprint= sprint::find_by_id($id);
+
+$sprint = null;
+if(is_get_request()){
+    if(!isset($_GET['id'])) {
+        redirect_to('../../signup.php');
+    }
+    $id = $_GET['id'];
+    $sprint= sprint::find_by_id($id);
+    if ($project == false) {
+        redirect_to('../../index.php');
+    }
+}
 
 if(is_post_request()){
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
-    $sprint = $project->create_sprint($name, $dur);
     $args = array('name' => $name, 'duration' => $dur);
     $sprint->merge_attributes($args);
     $sprint->save();
