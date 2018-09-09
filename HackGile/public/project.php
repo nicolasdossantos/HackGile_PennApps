@@ -131,7 +131,7 @@
                     </select>
                 </li>
                 <li class="collection-header center-align">
-                    <?php echo "<a href=". url_for('/sprint.php') ."?id=". $sprint->id . " class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
+                    <?php echo "<a href=''# ?id='". $sprint->id . "' class='btn btn-primary btn-large green' onclick='t".$i.".startTimer()'>Start Sprint</a>" ?>
                 </li>
             </ul>
         </div>
