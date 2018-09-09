@@ -25,7 +25,7 @@
                 </a>
                 <ul id="nav-mobile" class="right">
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-                        $user = member::find_by_id($_SESSION['id']);
+                        $user = member::find_by_id($_SESSION['user-id']);
                         ?>
                         <li><a href="<?php echo url_for('/member.php'); ?>" style="height:64px;">
                                 <?php echo

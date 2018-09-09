@@ -4,15 +4,15 @@ class project extends Database
 {
     static protected $table_name = 'projects';
 
-    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon_name','hackathon_duration'];
+    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon','hackathon_length'];
 
     public $id;
     public $name;
     public $description;
     public $max_members;
     public $git_link;
-    public $hackathon_duration;
-    public $hackathon_name;
+    public $hackathon_length;
+    public $hackathon;
     public $members= array() ;
     public $sprints = [];
     public $tasks = [];
@@ -23,6 +23,7 @@ class project extends Database
         $this->description = $args['description'] ?? '';
         $this->max_members = $args['max_members'] ?? 5;
         $this->git_link = $args['git_link'] ?? '';
+        $this->hackathon = $args['hackathon'] ?? '';
         $this->hackathon_length = $args['hackathon_length'] ?? 24;
 
     }

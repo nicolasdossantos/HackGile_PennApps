@@ -4,6 +4,7 @@ class sprint extends Database
 {
     static protected $table_name = 'sprints';
     static protected $db_columns = ['id', 'name', 'duration'];
+    public $id;
     public $name;
     public $duration; //total time
     public $stories = array(); //all tasks on project

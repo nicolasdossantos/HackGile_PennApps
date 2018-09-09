@@ -11,10 +11,10 @@ if(is_get_request()) {
 if(is_post_request()){
     $id =$_POST['id'];
     $project = project::find_by_id($id);
-    $name = $_POST['sprint_name'] ?? '';
-    $dur = $_POST['sprint_duration'] ?? 2;
+    $name = $_POST['story_name'] ?? '';
+    $dur = $_POST['story_description'] ?? '';
 
-    $sprint = $project->create_sprint($name, $dur);
+    //$sprint = $project->ad
     $sprint->save();
     $project->save();
     //redirect_to("../../project.php?id=".$id);
@@ -23,7 +23,7 @@ if(is_post_request()){
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
     <div class="row">
-        <form action="create_sprint.php" method='POST' class="col s12">
+        <form action="create_story.php" method='POST' class="col s12">
             <h3>Create a New Sprint</h3>
 
             <div class="row">

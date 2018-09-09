@@ -11,7 +11,7 @@ if(is_post_request()){
     $hackathon_name = $_POST['hackathon_name'] ?? '';
     $hackathon_length = $_POST['hackathon_length'] || 24;
 
-    $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members);
+    $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members, 'hackathon'=>$hackathon_name, 'hackathon_duration'=>$hackathon_length);
     $project = new project($arr);
     $project->save();
 
@@ -22,7 +22,7 @@ if(is_post_request()){
 
     //Do database stuff
 
-    redirect_to("../Sprints/create_sprint.php");
+    //redirect_to("../Sprints/create_sprint.php?id=".$project->id);
 }
 ?>
 
@@ -57,9 +57,6 @@ if(is_post_request()){
                     <label for="max_members">Maximum Team Members</label>
                     <input type="number" class="form-control" name="max_members" value="4">
                 </div>
-                <div class="input-field col s8">
-                    <a action="add_member" class="btn btn-primary">Add Member</a>
-                </div>
             </div>
 
             <div class="row">
@@ -72,15 +69,7 @@ if(is_post_request()){
                     <input type="number" class="form-control" name="hackathon_length" value="24">
                 </div>
             </div>
-
-            <div class="row">
-                <div class="input-field col s6">
-                    <a action="add_sprint" class="btn btn-primary">Add Sprint</a>
-                </div>
-
-            </div>
-            <hr>
-            <button type="submit" class="btn btn-primary right">Submit Event</button>
+            <button type="submit" class="btn btn-primary">Create Project</button>
         </form>
     </div>
 </div>

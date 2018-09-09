@@ -1,14 +1,13 @@
 <?php
-require_login();
 session_start();
 
 $link = mysqli_connect('localhost','webuser','pennapps2018');
 mysqli_select_db($link,'pennapps');
 
 $duration ="";
-$res = mysqli_query($link, "SELECT duration FROM timer");
+$res = $link->query("SELECT duration FROM timer");
 
-while($row=mysli_fetch_array($res)){
+while($row=mysqli_fetch_array($res)){
     $duration = $row['duration'];
 
 }

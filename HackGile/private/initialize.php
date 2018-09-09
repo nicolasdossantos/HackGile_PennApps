@@ -1,6 +1,6 @@
 <?php
   ob_start(); // turn on output buffering
-  session_set_cookie_params(3600000, '/');
+session_set_cookie_params(3600000, '/');
   session_start();
 
   define("PRIVATE_PATH", dirname(__FILE__));

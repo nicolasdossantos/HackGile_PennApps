@@ -2,7 +2,7 @@
 <?php $page_title = 'HackGILE - Profile'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 <?php
-    $user = member::find_by_id($_SESSION['id']);
+$user = member::find_by_id($_SESSION['user-id']);
 ?>
 <div class="user-profile teal lighten-4 z-depth-2" style="height:12em;border-bottom: 15px solid #009688; margin-bottom:100px;">
     <div class="container">
@@ -40,12 +40,23 @@
             <?php else: ?>
                 <?php foreach($projects as $project){ ?>
                     <li class="collection-item">
-                        <?php echo "
-                            <a href=" . url_for('/project.php') . "?id=" . $project->id . ">";
-                        ?>
-
                         <div class="row">
-                            <p><?php echo h($project->name); ?></p>
+                            <h5 style="color: black; font-weight:bold;"><?php echo h($project->name); ?>
+                                <?php echo "
+                                <a href=".url_for('/project.php')."?id=".$project->id ." class='secondary-content btn btn-primary waves waves-light'>
+                                View Project
+                                </a>"?>
+                            </h5>
+                            <?php $members = $project->members ?>
+                            <?php foreach($members as $member) { ?>
+                                <?php echo
+                                    "<img 
+                                    style='border-radius:50%; display:inline;' 
+                                    src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
+                                    ">"
+                                ?>
+                            <?php } ?>
+                            <p style="color: black"><?php echo h($project->description); ?></p>
                         </div>
                     </li>
                 <?php } ?>
