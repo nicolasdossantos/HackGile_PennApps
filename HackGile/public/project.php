@@ -3,30 +3,30 @@
 ?>
 
 <?php
-    if( isset($_GET['id'])) {
-        $project = project::find_by_id($_GET['id']);
+if( isset($_GET['id'])) {
+    $project = project::find_by_id($_GET['id']);
+}
+else{
+    $project = project::get_default_project1();
+}
+
+if( is_post_request() ){
+    $email = $_POST['email'];
+    $project = project::find_by_id($_POST['id']);
+
+    $sql = "SELECT * from members WHERE email='".$email."'";
+    $result = member::find_by_sql($sql);
+
+    if(count($result) == 1){
+        $user = $result[0];
+        $arr = array("project_id" => $project->id);
+
+        $user->merge_attributes($arr);
+        $user->save();
+        //$database->query($sql);
     }
-    else{
-        $project = project::get_default_project1();
-    }
-
-    if( is_post_request() ){
-        $email = $_POST['email'];
-        $project = project::find_by_id($_POST['id']);
-
-        $sql = "SELECT * from members WHERE email='".$email."'";
-        $result = member::find_by_sql($sql);
-
-        if(count($result) == 1){
-            $user = $result[0];
-            $arr = array("project_id" => $project->id);
-
-            $user->merge_attributes($arr);
-            $user->save();
-            //$database->query($sql);
-        }
-        redirect_to("project.php?id=".$_POST['id']);
-    }
+    redirect_to("project.php?id=".$_POST['id']);
+}
 ?>
 
 <?php $page_title = $project->name; ?>
@@ -42,14 +42,14 @@
 
     <div class="row">
         <form action="project.php?id="<?php echo $_GET['id']?> method="POST">
-        <div class="col s3">
-            <input type='email' name='email'>
-            <label for="email">Member Email</label>
-        </div>
-        <div class="col s2">
-            <input name="id" value="<?php echo $project->id ?>" hidden>
-            <button type="submit" class="btn btn-primary waves waves-light">Add Member</button>
-        </div>
+            <div class="col s3">
+                <input type='email' name='email'>
+                <label for="email">Member Email</label>
+            </div>
+            <div class="col s2">
+                <input name="id" value="<?php echo $project->id ?>" hidden>
+                <button type="submit" class="btn btn-primary waves waves-light">Add Member</button>
+            </div>
         </form>
         <div class="col s2 offset-s2">
             <?php echo "<a class='btn btn-primary waves-effect waves-light' href='" . url_for("/admin/Sprints/create_sprint.php") . "?id=" . $_GET['id'] . "'>New Sprint</a>" ?>
@@ -60,18 +60,18 @@
     </div>
 
     <?php
-        $sql = "SELECT * from sprints WHERE project_id = '".$project->id."'";
-        $sprints = sprint::find_by_sql($sql);
-        $number_of_sprints = count($sprints);
-        $sprint_index = 1;
+    $sql = "SELECT * from sprints WHERE project_id = '".$project->id."'";
+    $sprints = sprint::find_by_sql($sql);
+    $number_of_sprints = count($sprints);
+    $sprint_index = 1;
     ?>
 
-    <?php $i = 0; foreach($sprints as $sprint) { ?>
+    <?php foreach($sprints as $sprint) { ?>
         <div class="row">
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header">
                     <?php echo "<h4> Sprint " . $sprint_index . "/" . $number_of_sprints . ": " . $sprint->name
-                        . "<div class='secondary-content black-text' style='padding-right:10px;' id='$i'></div>". " t".$i." = new timer(". "strtotime(".$sprint->alertTime().")" .",'" . $i ."');" ."</h4>"
+                        . "<div class='secondary-content black-text' style='padding-right:10px;' id='".$sprint_index."'></div><script>t".$sprint_index." = new timer(". strtotime($sprint->alertTime()) .",'". $sprint_index ."');</script></h4>"
                     ?>
                     <div class="progress" style="height:10px;">
                         <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
@@ -85,12 +85,12 @@
                     <li class="collection-item">
                         <?php echo "<h6 style='font-weight:bold;'>$story->title" ?>
                         <?php echo "<div class='secondary-content'>" ?>
-                            <?php if($story->isComplete) { ?>
-                                <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
-                            <?php } else { ?>
-                                <a action='claim' class='btn btn-primary'>Claim</a>
-                                <a action='assign' class='btn btn-primary'>Assign</a>
-                            <?php  } ?>
+                        <?php if($story->isComplete) { ?>
+                            <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
+                        <?php } else { ?>
+                            <a action='claim' class='btn btn-primary'>Claim</a>
+                            <a action='assign' class='btn btn-primary'>Assign</a>
+                        <?php  } ?>
                         <?php echo "</div></h6>" ?>
 
                         <?php echo "<p> $story->description</p>" ?>
@@ -118,7 +118,7 @@
                             </ul>
                         <?php endif; */?>
                     </li>
-                <?php$i++; } ?>
+                    <?php } ?>
                 <li class="collection-header center-align">
                     <?php $stories = story::find_all(); ?>
                     <select>
@@ -131,7 +131,7 @@
                     </select>
                 </li>
                 <li class="collection-header center-align">
-                    <?php echo "<a href='#' ?id='". $sprint->id . "' class='btn btn-primary btn-large green' onclick='t".$i.".startTimer();'>Start Sprint</a>" ?>
+                    <?php echo "<a href='#' ?id='". $sprint->id . "' class='btn btn-primary btn-large green' onclick='t".$sprint_index.".startTimer();'>Start Sprint</a>" ?>
                 </li>
             </ul>
         </div>
