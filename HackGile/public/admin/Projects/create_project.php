@@ -30,8 +30,6 @@ if(is_post_request()){
 
     }
 
-    //Do database stuff
-
     redirect_to("../Stories/create_story.php?id=".$project->id);
 }
 ?>
