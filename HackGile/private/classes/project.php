@@ -4,14 +4,14 @@ class project extends Database
 {
     static protected $table_name = 'projects';
 
-    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members'];
+    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon_name','hackathon_duration'];
 
     public $id;
     public $name;
     public $description;
     public $max_members;
     public $git_link;
-    public $hackathon_length;
+    public $hackathon_duration;
     public $hackathon_name;
     public $members= array() ;
     public $sprints = [];

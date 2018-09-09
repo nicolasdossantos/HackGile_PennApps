@@ -15,6 +15,11 @@ if(is_post_request()){
     $project = new project($arr);
     $project->save();
 
+    if($project){
+        echo '<div>Project Created Successfully!</div>';
+
+    }
+
     //Do database stuff
 
     redirect_to("../Sprints/create_sprint.php");
