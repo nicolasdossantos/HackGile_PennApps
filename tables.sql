@@ -46,13 +46,14 @@ CREATE TABLE `timer` (
 CREATE TABLE `stories` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `priority` tinyint(1) NOT NULL,
-  `complete` tinyint(1),
+  `complete` tinyint(1) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `claimed_by`  varchar(255),
+  `claimed_by`  varchar(255) NOT NULL,
   `sprint_id`  int(8),
   `project_id` int(11),
   PRIMARY KEY (`id`),
+  FOREIGN KEY (`sprint_id`) REFERENCES sprints(`id`),
   FOREIGN KEY (`project_id`) REFERENCES projects(`id`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;

@@ -12,7 +12,6 @@ if (is_get_request()) {
 }
 
 if (is_post_request()) {
-    $projectId = $_POST['id'];
     $name = $_POST['name'] ?? '';
     $desc = $_POST['description'] ?? '';
     $priority = $_POST['priority'] ?? '';
@@ -21,7 +20,7 @@ if (is_post_request()) {
     $result = $story->save();
 
 
-    //redirect_to("../../project.php?id=".$_POST['id']);
+    redirect_to("../../project.php?id=".$_POST['id']);
 }
 ?>
 

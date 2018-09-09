@@ -16,14 +16,13 @@ class story extends Database
     public $project_id;
 
 
-    public function __construct($arr=[])
+    public function __construct($description, $priority, $project_id, $name)
     {
-        $this->name = $arr['name'] ?? '';
-        $this->priority = $arr['priority'] ?? 3;
-        $this->project_id = $arr['project_id'] ?? 0;
-        $this->description = $arr['description'] ?? '';
-        $this->complete = $arr['complete'] ?? 0;
-        $this->sprint_id = $arr['sprint_id'] ?? 0;
+        $this->name = $name ?? '';
+        $this->priority = $priority ?? '3';
+        $this->project_id = $project_id ?? 1;
+        $this->description = $description ?? '';
+
     }
 
     public function set_sprint_id($sprint_id){
