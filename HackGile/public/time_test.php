@@ -1,5 +1,5 @@
 <?php
-require_login();
+//require_login();
 session_start();
 ?>
 

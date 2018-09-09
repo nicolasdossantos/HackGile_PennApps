@@ -27,7 +27,7 @@
 
 <?php $page_title = $project->name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
-
+<script src="timer.js"></script>
 <div class="container teal lighten-4 z-depth-2">
     <h2 class="center z-depth-2 teal white-text">
         <?php echo $project->name ?>
@@ -62,12 +62,12 @@
         $sprint_index = 1;
     ?>
 
-    <?php foreach($sprints as $sprint) { ?>
+    <?php $i = 0; foreach($sprints as $sprint) { ?>
         <div class="row">
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header">
                     <?php echo "<h4> Sprint " . $sprint_index . "/" . $number_of_sprints . ": " . $sprint->name
-                        . "<div class='secondary-content black-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"
+                        . "<div class='secondary-content black-text' style='padding-right:10px;' id='$i'></div>". " t".$i." = new timer(". strtotime($sprint->alertTime()) ."," . $i .")" ."</h4>"
                     ?>
                     <div class="progress" style="height:10px;">
                         <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
@@ -114,7 +114,7 @@
                             </ul>
                         <?php endif; */?>
                     </li>
-                <?php } ?>
+                <?php$i++; } ?>
                 <li class="collection-header center-align">
                     <?php echo "<a href=". url_for('/sprint.php') ."?id=". $sprint->id . " class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
                 </li>
