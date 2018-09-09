@@ -23,7 +23,7 @@ if(is_post_request()){
 
     //Do database stuff
 
-    redirect_to("../Sprints/create_story.php?id=".$project->id);
+    redirect_to("../Story/create_story.php?id=".$project->id);
 }
 ?>
 

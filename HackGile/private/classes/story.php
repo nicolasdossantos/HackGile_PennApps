@@ -3,63 +3,35 @@
 class story extends Database
 {
     static protected $table_name = 'stories';
-    static protected $db_columns = ['id', 'priority', 'complete', 'name', 'description'];
-    public $substory = array();
-    public $isComplete = false;
-    public $isSubstory = false;
-    public $parentStory;
-    public $title;
-    public $description;
+    static protected $db_columns = ['id', 'priority', 'complete', 'name', 'description', 'claimed_by', 'sprint_id', 'project_id'];
+
+
+    public $id;
     public $priority;
-    public $members = array();
+    public $complete;
+    public $name;
+    public $description;
+    public $claimed_by;
+    public $sprint_id;
+    public $project_id;
 
 
-    public function __construct($title, $description, $priority) {
-        $this->title = $title ?? 'default title';
-        $this->description = $description ?? 'default description';
-        $this->priority = $priority ?? 0;
-    }
-
-    public function edit_story_title($title){
-        $this->title = $title;
-    }
-
-    public function edit_story_description($description){
-        $this->description = $description;
-    }
-
-    public function complete(){
-        $this->isComplete = true;
-        if ($this->isSubstory){
-            $this->parentStory->check_substory_completion();
-        }
-    }
-
-    public function add_member($member){
-        $this->members[] = $member;
-    }
-
-    public function check_substory_completion(){
-        $temp = true;
-        foreach($this->substory as $story){
-            if($story->isComplete === false){
-                $temp = false;
-                break;
-            }
-        }
-        $this->isComplete = $temp;
-    }
-
-    public function add_substory($task){
-        $this->substory[] = $task;
-        $task->isSubstory = true;
-        $task->parentStory = $this;
-    }
-    
-    function __destruct()
+    public function __construct($description, $priority, $project_id, $name)
     {
-        //foreach($this->substory as $story){
-            //unset($story);
-        }
-    //}
+        $this->name = $name ?? '';
+        $this->priority = $priority ?? '3';
+        $this->project_id = $project_id ?? 1;
+        $this->description = $description ?? '';
+
+    }
+
+    public function set_sprint_id($sprint_id){
+        $this->sprint_id = $sprint_id;
+    }
+
+    public function claim_story($memberId){
+        $this->claimed_by = $memberId;
+    }
+
+
 }

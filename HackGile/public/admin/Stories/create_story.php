@@ -2,66 +2,89 @@
 
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
+
+
 <?php
-if(is_get_request()) {
-    $id = $_GET['id'];
-    $project = project::find_by_id($id);
+
+
+if (is_get_request()) {
+    $projectId = $_GET['id'];
+
+
 }
 
-if(is_post_request()){
-    $id =$_POST['id'];
-    $project = project::find_by_id($id);
-    $name = $_POST['story_name'] ?? '';
-    $dur = $_POST['story_description'] ?? '';
+if (is_post_request()) {
+    $name = $_POST['name'] ?? '';
+    $desc = $_POST['description'] ?? '';
+    $priority = $_POST['priority'] ?? '';
 
-    //$sprint = $project->ad
-    $sprint->save();
-    $project->save();
-    //redirect_to("../../project.php?id=".$id);
+
+
+
+    $story = new story($desc,$priority,$projectId,$name);
+    $story->save();
+
+
+    redirect_to("../member.php");
 }
 ?>
 
 <div class="container white z-depth-2" style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
     <div class="row">
         <form action="create_story.php" method='POST' class="col s12">
-            <h3>Create a New Sprint</h3>
+            <h3>Create a New Story</h3>
 
             <div class="row">
-                <div class="input-field col s8">
-                    <label for="sprint_name">Sprint Name</label>
-                    <input type="text" class="form-control" name="sprint_name" placeholder="Sprint Name">
-                </div>
-                <div class="input-field col s4">
-                    <label for="sprint_duration">Sprint Duration (Hours)</label>
-                    <input type="number" class="form-control" name="sprint_duration" value="2">
+                <div class="input-field col s12">
+                    <label for="name">Story Title</label>
+                    <input type="text" class="form-control" name="name"
+                           placeholder="Story Title ">
                 </div>
             </div>
-            <input type="text" name="id" value="<?php echo $_GET['id']?>" hidden>
-            <button type="submit" class="btn btn-primary right">Create Sprint</button>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="description">Description</label>
+                    <textarea id="desc-text-area" name="description" class="materialize-textarea"
+                              placeholder="Description (Optional)"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="priority">Priority</label>
+                    <select name="priority">
+                        <option value ="3">High</option>
+                        <option value ="2">Medium</option>
+                        <option value ="1">Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Project</button>
         </form>
     </div>
 </div>
 
 
-
 <script>
-    function checkPasswordLabel(){
+    function checkPasswordLabel() {
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();
         console.log(password2)
-        if(password1 !== password2) {
+        if (password1 !== password2) {
             $('#confirm-password-label').show(250);
         }
-        else{
+        else {
             $('#confirm-password-label').hide(250);
         }
     }
 
-    function hideLabel(){
+    function hideLabel() {
         $('#confirm-password-label').hide(250);
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         hideLabel();
         $("#confirmPassword").on("focus", checkPasswordLabel);
         $("#confirmPassword").on("keyup", checkPasswordLabel);
