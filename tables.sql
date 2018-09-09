@@ -14,7 +14,9 @@ CREATE TABLE `projects` (
   `max_members` int(2),
   `description` varchar(255),
   `git_link` varchar(255),
-  PRIMARY KEY (`id`)
+  `created_by_id` int(8),
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`created_by_id`) REFERENCES members(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 
@@ -33,6 +35,7 @@ CREATE TABLE `members` (
 CREATE TABLE `sprints` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `project_id` int(8) NOT NULL,
   `duration` time NOT NULL,
 
   PRIMARY KEY (`id`)
@@ -53,8 +56,8 @@ CREATE TABLE `stories` (
   `claimed_by`  varchar(255) NOT NULL,
   `sprint_id`  int(8),
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`sprint_id`) REFERENCES sprints(`id`) 
+  FOREIGN KEY (`sprint_id`) REFERENCES sprints(`id`),
+  FOREIGN KEY (`project_id`) REFERENCES project(`id`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
 
