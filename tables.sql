@@ -24,18 +24,11 @@ CREATE TABLE `members` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `hashed_password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `project_id` int(8) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`project_id`) REFERENCES projects(`id`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `stories` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
-  `priority` tinyint(1) NOT NULL,
-  `complete` tinyint(1) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `claimed_by`  varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sprints` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
@@ -49,6 +42,19 @@ CREATE TABLE `timer` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `duration` varchar(255) NOT NULL,
    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `stories` (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `priority` tinyint(1) NOT NULL,
+  `complete` tinyint(1) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `claimed_by`  varchar(255) NOT NULL,
+  `sprint_id`  int(8) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`sprint_id`) REFERENCES sprints(`id`) 
+
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 
