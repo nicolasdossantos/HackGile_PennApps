@@ -4,7 +4,7 @@ class Database
 {
     static protected $database;
     static protected $table_name = "";
-    static protected $columns = [];
+    static protected $db_columns = [];
     public $errors = [];
 
 

@@ -7,14 +7,23 @@ if(is_post_request()){
     $name = $_POST['name'] ?? '';
     $desc = $_POST['description'] ?? '';
     $repo = $_POST['git_link'] ?? '';
-    $max_members = $_POST['max_members'] || 5;
+    $max_members = $_POST['max_members'] ?? 5;
     $hackathon_name = $_POST['hackathon_name'] ?? '';
-    $hackathon_duration = $_POST['hackathon_length'] || 24;
+    $hackathon_duration = $_POST['hackathon_length'] ?? 24;
+    $creator_id = $_POST['created_by_id'];
 
     $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members, 'hackathon_name'=>$hackathon_name,
         'hackathon_duration'=>$hackathon_duration);
     $project = new project($arr);
     $project->save();
+    $last_id = $database->insert_id;
+
+
+    $arr = array('project_id' => $last_id);
+    $user = member::find_by_id($creator_id);
+
+    $user->merge_attributes($arr);
+    $user->save();
 
     if($project){
         echo '<div>Project Created Successfully!</div>';
@@ -23,7 +32,7 @@ if(is_post_request()){
 
     //Do database stuff
 
-    redirect_to("../Sprints/create_story.php?id=".$project->id);
+    redirect_to("../Stories/create_story.php?id=".$project->id);
 }
 ?>
 
