@@ -3,14 +3,18 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-if(is_post_request()){ //TODO Change to edit
+$id = $_GET['id'];
+$sprint= sprint::find_by_id($id);
+
+if(is_post_request()){
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
-    $sprint = new sprint($name, $dur);
+    $sprint = $project->create_sprint($name, $dur);
+    $args = array('name' => $name, 'duration' => $dur);
+    $sprint->merge_attributes($args);
     $sprint->save();
 
-    //Do database stuff
 
     //redirect_to("create_sprint.php");
 }
@@ -24,17 +28,17 @@ if(is_post_request()){ //TODO Change to edit
             <div class="row">
                 <div class="input-field col s8">
                     <label for="sprint_name">Sprint Name</label>
-                    <input type="text" class="form-control" name="sprint_name" placeholder="Sprint Name">
+                    <input type="text" class="form-control" name="sprint_name" placeholder=<?php echo $sprint->name;?>>
                 </div>
                 <div class="input-field col s4">
                     <label for="sprint_duration">Sprint Duration (Hours)</label>
-                    <input type="number" class="form-control" name="sprint_duration" value="2">
+                    <input type="number" class="form-control" name="sprint_duration" value="<?php echo $sprint->duration;?>">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6">
-                    <a action="add_sprint" class="btn btn-primary">Add Sprint</a>
+                    <a action="add_sprint" class="btn btn-primary">Edit Sprint</a>
                 </div>
 
             </div>

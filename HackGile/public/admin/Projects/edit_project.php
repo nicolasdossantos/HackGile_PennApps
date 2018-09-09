@@ -11,7 +11,7 @@ if(!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-$project= project::find_by_id($id);
+$project = project::find_by_id($id);
 
 
 if($project == false) {

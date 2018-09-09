@@ -3,17 +3,19 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-if(is_post_request()){ //TODO: sprint should be created using its project's create_sprint function
+$id = $_GET['id'];
+$project= project::find_by_id($id);
+
+
+if(is_post_request()){
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
-    $sprint = new sprint($name, $dur);
+    $sprint = $project->create_sprint($name, $dur);
     $sprint->save();
 
     $id = $_GET['id'];
     //Do database stuff
-
-    //redirect_to("create_sprint.php");
 }
 ?>
 
