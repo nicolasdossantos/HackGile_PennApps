@@ -12,10 +12,10 @@ class sprint extends Database
     public $countdown; //time remaining
     public $doAddStory = false;
 
-    public function __construct($name, $duration, $project_id) {
-        $this->name = $name ?? '';
-        $this->duration =  sprintf("%02d:00:00", $duration);
-        $this->project_id = $project_id;
+    public function __construct($args=[]) {
+        $this->name = $args['name'] ?? '';
+        $this->duration = strtotime(sprintf("%02d:00:00", ($args['duration'] ?? 0)));
+        $this->project_id = $args['project_id'] ?? '';
     }
 
 
@@ -38,9 +38,7 @@ class sprint extends Database
     }
 
     public function alertTime() {
-        $hours = $this->duration / 60 / 60;
-        $minutes = $this->duration / 60 % 60;
-        return sprintf("%2d:%02d", $hours, $minutes);
+        return $this->duration;
     }
 
     public function getCompletionPercentage() {

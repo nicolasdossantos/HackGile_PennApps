@@ -9,14 +9,15 @@ if(is_get_request()) {
 }
 
 if(is_post_request()){
-    $id =$_POST['id'];
+    $id = $_POST['id'];
     $project = project::find_by_id($id);
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
-    $sprint = new sprint($name, $dur, $project->id);
+    $arr = array('name' => $name, 'duration' => $dur, 'project_id' => $project->id);
+    $sprint = new sprint($arr);
     $sprint->save();
-    //redirect_to("../../project.php?id=".$id);
+    redirect_to("../../project.php?id=".$id);
 }
 ?>
 

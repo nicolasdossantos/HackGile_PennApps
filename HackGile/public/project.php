@@ -58,6 +58,7 @@
     <?php
         $sql = "SELECT * from sprints WHERE project_id = '".$project->id."'";
         $sprints = sprint::find_by_sql($sql);
+        $number_of_sprints = count($sprints);
         $sprint_index = 1;
     ?>
 
@@ -65,7 +66,7 @@
         <div class="row">
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header">
-                    <?php echo "<h4> Sprint " . $sprint_index . "/" . $project->number_of_sprints() . ": " . $sprint->name
+                    <?php echo "<h4> Sprint " . $sprint_index . "/" . $number_of_sprints . ": " . $sprint->name
                         . "<div class='secondary-content black-text' style='padding-right:10px;'>" . $sprint->alertTime() . "</div></h4>"
                     ?>
                     <div class="progress" style="height:10px;">

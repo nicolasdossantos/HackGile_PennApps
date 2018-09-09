@@ -51,12 +51,17 @@ $user = member::find_by_id($_SESSION['user-id']);
                                 </a>
                                 "?>
                             </h5>
-                                <?php /*echo
-                                    "<img 
-                                    style='border-radius:50%; display:inline;' 
-                                    src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
-                                    ">"
-                                */?>
+                                <?php
+                                    $sql = "SELECT * from members WHERE project_id='". $project->id ."' UNION SELECT * from members WHERE id='". $project->created_by_id ."'";
+                                    $members = member::find_by_sql($sql);
+                                    foreach($members as $member) {
+                                        echo
+                                            "<img 
+                                             style='border-radius:50%; display:inline;' 
+                                             src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
+                                            ">";
+                                }
+                                ?>
                             <p style="color: black"><?php echo h($project->description); ?></p>
                         </div>
                     </li>

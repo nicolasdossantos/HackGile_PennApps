@@ -20,14 +20,15 @@ if(is_post_request()){
         $_SESSION['user-id'] = $value->id;
         $_SESSION['logged_in'] = true;
         header("Location: member.php");
+        exit();
     }
     else{
         $statusCode = 401;
         $statusMessage = "Invalid Credentials";
         header("Location: login.php");
         header('Status: '.$statusCode.' '.$statusMessage);
+        exit();
     }
-
 }
 ?>
 

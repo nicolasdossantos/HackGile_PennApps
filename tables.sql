@@ -1,10 +1,8 @@
-DROP TABLE hackathons;
-DROP TABLE projects;
+DROP TABLE timer;
 DROP TABLE members;
+DROP TABLE projects;
 DROP TABLE stories;
 DROP TABLE sprints;
-DROP TABLE timer;
-
 
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -14,9 +12,7 @@ CREATE TABLE `projects` (
   `max_members` int(2),
   `description` varchar(255),
   `git_link` varchar(255),
-  `created_by_id` int(8),
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`created_by_id`) REFERENCES members(`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 
@@ -35,10 +31,10 @@ CREATE TABLE `members` (
 CREATE TABLE `sprints` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `project_id` int(8) NOT NULL,
+  `project_id` int(11) NOT NULL,
   `duration` time NOT NULL,
-
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`project_id`) REFERENCES projects(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `timer` (
@@ -55,9 +51,10 @@ CREATE TABLE `stories` (
   `description` varchar(255) NOT NULL,
   `claimed_by`  varchar(255) NOT NULL,
   `sprint_id`  int(8),
+  `project_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`sprint_id`) REFERENCES sprints(`id`),
-  FOREIGN KEY (`project_id`) REFERENCES project(`id`)
+  FOREIGN KEY (`project_id`) REFERENCES projects(`id`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
