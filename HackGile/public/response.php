@@ -1,7 +1,4 @@
 <?php
-
-require_login();
-
  session_start();
 
  $from_time1 = date('Y-m-d H:i:s');
