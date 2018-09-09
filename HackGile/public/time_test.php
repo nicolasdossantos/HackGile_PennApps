@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 //require_login();
+=======
+>>>>>>> af240c8e09624a7cbf7088fe82d2ff103ceb1064
 session_start();
 ?>
 

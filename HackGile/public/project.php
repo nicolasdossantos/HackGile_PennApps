@@ -14,14 +14,18 @@
         $email = $_POST['email'];
         $project = project::find_by_id($_POST['id']);
 
-        $sql = "SELECT * from users WHERE email='$email'";
+        $sql = "SELECT * from members WHERE email='".$email."'";
         $result = member::find_by_sql($sql);
 
         if(count($result) == 1){
             $user = $result[0];
-            $sql = "UPDATE TABLE members SET ";
+            $arr = array("project_id" => $project->id);
+
+            $user->merge_attributes($arr);
+            $user->save();
             //$database->query($sql);
         }
+        redirect_to("project.php?id=".$_POST['id']);
     }
 ?>
 
@@ -37,7 +41,7 @@
     </h2>
 
     <div class="row">
-        <form action="project.php" method="POST">
+        <form action="project.php?id="<?php echo $_GET['id']?> method="POST">
         <div class="col s3">
             <input type='email' name='email'>
             <label for="email">Member Email</label>
@@ -116,19 +120,18 @@
                     </li>
                 <?php$i++; } ?>
                 <li class="collection-header center-align">
-                    <?php echo "<a href=". url_for('/sprint.php') ."?id=". $sprint->id . " class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
-                </li>
-                <li class="collection-header center-align">
                     <?php $stories = story::find_all(); ?>
-                        <select>
-                            <option value="" disabled selected>Add Story</option>
+                    <select>
+                        <option value="" disabled selected>Add Story</option>
                         <?php foreach($stories as $story){ ?>
                             <option href="project.php?">
                                 <?php echo $story->name; ?>
                             </option>
                         <?php } ?>
-                        </select>
-                    ?>
+                    </select>
+                </li>
+                <li class="collection-header center-align">
+                    <?php echo "<a href=". url_for('/sprint.php') ."?id=". $sprint->id . " class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
                 </li>
             </ul>
         </div>
@@ -139,6 +142,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {classes: '', dropdownOptions: {}});
+    });
+</script>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
 

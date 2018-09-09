@@ -17,7 +17,7 @@ if(is_post_request()){
     $arr = array('name' => $name, 'duration' => $dur, 'project_id' => $project->id);
     $sprint = new sprint($arr);
     $sprint->save();
-    //redirect_to("../../project.php?id=".$id);
+    redirect_to("../../project.php?id=".$id);
 }
 ?>
 

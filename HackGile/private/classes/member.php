@@ -8,6 +8,7 @@ class member extends Database
     public $email;
     public $first_name;
     public $last_name;
+    public $hashed_password;
     public $project_id;
 
 
@@ -16,7 +17,6 @@ class member extends Database
         $this->email = $args['email'] ?? '';
         $this->first_name = $args['first_name'] ?? '';
         $this->last_name = $args['last_name'] ?? '';
-
     }
 
     public function getEmail()
