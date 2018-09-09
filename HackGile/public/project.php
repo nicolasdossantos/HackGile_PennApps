@@ -118,6 +118,18 @@
                 <li class="collection-header center-align">
                     <?php echo "<a href=". url_for('/sprint.php') ."?id=". $sprint->id . " class='btn btn-primary btn-large green'>Start Sprint</a>" ?>
                 </li>
+                <li class="collection-header center-align">
+                    <?php $stories = story::find_all(); ?>
+                        <select>
+                            <option value="" disabled selected>Add Story</option>
+                        <?php foreach($stories as $story){ ?>
+                            <option href="project.php?">
+                                <?php echo $story->name; ?>
+                            </option>
+                        <?php } ?>
+                        </select>
+                    ?>
+                </li>
             </ul>
         </div>
         <?php $sprint_index++; } ?>

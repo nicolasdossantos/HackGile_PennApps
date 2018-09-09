@@ -52,7 +52,7 @@ $user = member::find_by_id($_SESSION['user-id']);
                                 "?>
                             </h5>
                                 <?php
-                                    $sql = "SELECT * from members WHERE project_id='". $project->id ."' UNION SELECT * from members WHERE id='". $project->created_by_id ."'";
+                                    $sql = "SELECT * from members WHERE project_id='". $project->id ."'";
                                     $members = member::find_by_sql($sql);
                                     foreach($members as $member) {
                                         echo

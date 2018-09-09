@@ -4,7 +4,7 @@ class project extends Database
 {
     static protected $table_name = 'projects';
 
-    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon','hackathon_duration', 'created_by_id'];
+    static protected $db_columns = ['id','description', 'name', 'git_link', 'max_members','hackathon','hackathon_duration'];
 
     public $id;
     public $name;
@@ -23,8 +23,6 @@ class project extends Database
         $this->git_link = $args['git_link'] ?? '';
         $this->hackathon = $args['hackathon'] ?? '';
         $this->hackathon_duration = $args['hackathon_duration'] ?? 24;
-        $this->created_by_id = $args['created_by_id'] ?? '';
-
     }
 
     public function is_admin($member)
