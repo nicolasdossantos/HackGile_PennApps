@@ -17,11 +17,12 @@ if (is_post_request()) {
     $desc = $_POST['description'] ?? '';
     $priority = $_POST['priority'] ?? '';
 
-    $story = new story($desc,$priority,$projectId,$name);
+    $arr = array("name"=>$name, "description" => $desc, "project_id" => $projectId, "priority" => $priority);
+    $story = new story($arr);
     $result = $story->save();
 
 
-    //redirect_to("../../project.php?id=".$_POST['id']);
+    redirect_to("../../project.php?id=".$_POST['id']);
 }
 ?>
 

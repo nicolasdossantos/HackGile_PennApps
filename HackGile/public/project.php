@@ -79,52 +79,31 @@
                     </div>
                 </li>
 
-                <?php $stories = $sprint->stories ?>
+                <?php
+                    $sql = "SELECT * from stories WHERE sprint_id='". $sprint->id ."'";
+                    $stories = story::find_by_sql($sql);
+                ?>
 
                 <?php foreach($stories as $story) { ?>
                     <li class="collection-item">
-                        <?php echo "<h6 style='font-weight:bold;'>$story->title" ?>
+                        <?php echo "<h6 style='font-weight:bold;'>$story->name" ?>
                         <?php echo "<div class='secondary-content'>" ?>
-                            <?php if($story->isComplete) { ?>
+                            <?php if($story->complete) { ?>
                                 <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
                             <?php } else { ?>
                                 <a action='claim' class='btn btn-primary'>Claim</a>
-                                <a action='assign' class='btn btn-primary'>Assign</a>
                             <?php  } ?>
                         <?php echo "</div></h6>" ?>
 
                         <?php echo "<p> $story->description</p>" ?>
-
-                        <?php $members = $story->members ?>
-                        <?php foreach($members as $member) { ?>
-                            <?php echo
-                                "<img 
-                                    style='border-radius:50%; display:inline;' 
-                                    src=" . get_gravatar_url($member->email, $member->first_name, $member->last_name, 35, false) .
-                                ">"
-                            ?>
-                        <?php } ?>
-
-
-                        <?php /*$substories = $story->substory ?>
-                        <?php if(!empty($substories)) : ?>
-                            <ul class="collection z-depth-1">
-                                <?php foreach($substories as $substory) { ?>
-                                    <li class="collection-item">
-                                        <?php echo "<h6 style='font-weight:bold;'>$substory->title<div class='secondary-content'>Claim</div></h6>" ?>
-                                        <?php echo "<p> $substory->description</p>" ?>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        <?php endif; */?>
                     </li>
                 <?php } ?>
                 <li class="collection-header center-align">
                     <?php $stories = story::find_all(); ?>
-                    <select>
+                    <select class="story-dropdown">
                         <option value="" disabled selected>Add Story</option>
                         <?php foreach($stories as $story){ ?>
-                            <option href="project.php?">
+                            <option value="<?php echo $story->id ?>-<?php echo $sprint->id ?>">
                                 <?php echo $story->name; ?>
                             </option>
                         <?php } ?>
@@ -147,6 +126,16 @@
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, {classes: '', dropdownOptions: {}});
+    });
+
+    $('.story-dropdown').change(function(){
+        var inputValue = $(this).val();
+
+        var storyVal = inputValue.split("-")[0];
+        var sprintVal = inputValue.split("-")[1];
+        $.post('add_story.php', {storyValue: storyVal, sprintValue: sprintVal}, function(data){
+            location.reload();
+        })
     });
 </script>
 
