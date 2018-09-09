@@ -43,7 +43,7 @@ class sprint extends Database
 
     public function getCompletionPercentage() {
         $completeCount = 0;
-        $sql = "SELECT * from stories WHERE sprint_id='". $this->id ."'";
+        $sql = "SELECT * from stories WHERE sprint_id='".$this->id."'";
         $stories = story::find_by_sql($sql);
         foreach($stories as $story){
             if($story->complete){

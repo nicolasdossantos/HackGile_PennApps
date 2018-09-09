@@ -38,18 +38,30 @@ if(is_get_request()) {
                 <?php echo "<h4> Sprint " . $sprint->name
                     . "<div class='secondary-content black-text' style='padding-right:10px;' id='countdown'></div><script>t = new timer(\"". $sprint->alertTime() ."\",'countdown');</script></h4>"
                 ?>
+                <?php
+                $sql = "SELECT * from stories WHERE sprint_id='". $sprint->id ."'";
+                $stories = story::find_by_sql($sql);
+                $completeCount = 0;
+                foreach($stories as $story){
+                    if($story->complete){
+                        $completeCount++;
+                    }
+                }
+                if(count($stories) == 0) {
+                    return 100;
+                }
+                $percentage  = (100 * $completeCount / count($stories));
+
+                $statusColor = "teal";
+                if($percentage == 100){
+                    $statusColor =  "green";
+                }
+                ?>
                 <div class="progress" style="height:10px;">
-                    <div class="determinate <?php echo $sprint->getStatusColor() ?>" style="width:<?php echo $sprint->getCompletionPercentage() ?>%">
+                    <div class="determinate <?php echo $statusColor ?>" style="width:<?php echo $percentage ?>%">
                     </div>
                 </div>
             </li>
-
-            <?php $stories = $sprint->stories ?>
-
-            <?php
-            $sql = "SELECT * from stories WHERE sprint_id='". $sprint->id ."'";
-            $stories = story::find_by_sql($sql);
-            ?>
 
             <?php foreach($stories as $story) { ?>
                 <li class="collection-item <?php if($story->priority == 1){ echo "green lighten-3"; }?>
