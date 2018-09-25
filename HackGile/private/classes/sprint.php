@@ -12,7 +12,8 @@ class sprint extends Database
     public $countdown; //time remaining
     public $doAddStory = false;
 
-    public function __construct($args=[]) {
+    public function __construct($args = [])
+    {
         $this->name = $args['name'] ?? '';
         $this->duration = sprintf("%02d:00:00", ($args['duration'] ?? 0));
         $this->project_id = $args['project_id'] ?? '';
@@ -33,35 +34,38 @@ class sprint extends Database
     }
 
 
-    public function startSprint($duration) {
+    public function startSprint($duration)
+    {
         $this->countdown = $duration;
     }
 
-    public function alertTime() {
+    public function alertTime()
+    {
         return $this->duration;
     }
 
-    public function getCompletionPercentage() {
+    public function getCompletionPercentage()
+    {
         $completeCount = 0;
-        $sql = "SELECT * from stories WHERE sprint_id='".$this->id."'";
+        $sql = "SELECT * from stories WHERE sprint_id='" . $this->id . "'";
         $stories = story::find_by_sql($sql);
-        foreach($stories as $story){
-            if($story->complete){
+        foreach ($stories as $story) {
+            if ($story->complete) {
                 $completeCount++;
             }
         }
-        if(count($this->stories) == 0) {
+        if (count($this->stories) == 0) {
             return 100;
         }
-        $percentage  = (100 * $completeCount / count($this->stories));
+        $percentage = (100 * $completeCount / count($this->stories));
         return $percentage;
     }
 
-    public function getStatusColor(){
-        if($this->getCompletionPercentage() == 100){
+    public function getStatusColor()
+    {
+        if ($this->getCompletionPercentage() == 100) {
             return "green";
-        }
-        else{
+        } else {
             return "teal";
         }
     }

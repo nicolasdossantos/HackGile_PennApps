@@ -5,8 +5,8 @@
 <?php
 
 $project = null;
-if(is_get_request()){
-    if(!isset($_GET['id'])) {
+if (is_get_request()) {
+    if (!isset($_GET['id'])) {
         redirect_to('../../signup.php');
     }
     $id = $_GET['id'];
@@ -16,7 +16,7 @@ if(is_get_request()){
     }
 }
 
-if(is_post_request()) {
+if (is_post_request()) {
 
     $id = $_POST['id'];
     $project = project::find_by_id($id);
@@ -52,28 +52,32 @@ if(is_post_request()) {
             <div class="row">
                 <div class="input-field col s12">
                     <label for="name">Project Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Project Name (Can be changed later)" value="<?php echo h($project->name); ?>">
+                    <input type="text" class="form-control" name="name"
+                           placeholder="Project Name (Can be changed later)" value="<?php echo h($project->name); ?>">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <label for="description">Description</label>
-                    <textarea id="desc-text-area" name="description" class="materialize-textarea" placeholder="Description (Optional)"><?php echo h($project->description); ?></textarea>
+                    <textarea id="desc-text-area" name="description" class="materialize-textarea"
+                              placeholder="Description (Optional)"><?php echo h($project->description); ?></textarea>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <label for="git_link">Repository Link</label>
-                    <input type="url" class="form-control" name="git_link" placeholder="Repo Link" value="<?php echo h($project->git_link); ?>">
+                    <input type="url" class="form-control" name="git_link" placeholder="Repo Link"
+                           value="<?php echo h($project->git_link); ?>">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s4">
                     <label for="max_members">Maximum Team Members</label>
-                    <input type="number" class="form-control" name="max_members" value="<?php echo h($project->max_members); ?>">
+                    <input type="number" class="form-control" name="max_members"
+                           value="<?php echo h($project->max_members); ?>">
                 </div>
                 <div class="input-field col s8">
                     <a action="add_member" class="btn btn-primary">Add Member</a>
@@ -98,32 +102,31 @@ if(is_post_request()) {
 
             </div>
             <hr>
-                <input type="text" name="id" value='<?php echo "$project->id"?>' hidden>
+            <input type="text" name="id" value='<?php echo "$project->id" ?>' hidden>
             <button type="submit" class="btn btn-primary right">Submit Event</button>
         </form>
     </div>
 </div>
 
 
-
 <script>
-    function checkPasswordLabel(){
+    function checkPasswordLabel() {
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();
         console.log(password2)
-        if(password1 !== password2) {
+        if (password1 !== password2) {
             $('#confirm-password-label').show(250);
         }
-        else{
+        else {
             $('#confirm-password-label').hide(250);
         }
     }
 
-    function hideLabel(){
+    function hideLabel() {
         $('#confirm-password-label').hide(250);
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         hideLabel();
         $("#confirmPassword").on("focus", checkPasswordLabel);
         $("#confirmPassword").on("keyup", checkPasswordLabel);

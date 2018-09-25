@@ -7,11 +7,11 @@ session_start();
 
 
 <script type="text/javascript">
-    setInterval(function(){
+    setInterval(function () {
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", "response.php",false);
+        xmlhttp.open("GET", "response.php", false);
         xmlhttp.send(null);
-        document.getElementById("response").innerHTML=xmlhttp.responseText;
+        document.getElementById("response").innerHTML = xmlhttp.responseText;
 
 
     }, 1000)

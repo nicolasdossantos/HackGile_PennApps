@@ -11,8 +11,8 @@
     <h5 style="padding-left:5em;"><em>Bring Agile Development to Every Hackathon</em></h5>
     <br>
     <h6>
-        With our tool, you can use an Agile methodology at your next hackathon. Just sign up,
-        start a new project, and being creating sprints throughout the duration of the
+        With our tool, you can use an Agile/Scrum methodology at your next hackathon. Just sign up,
+        start a new project, and begin creating sprints throughout the duration of the
         hackathon. Our project also boasts these cool features.
     </h6>
     <div class="row">
@@ -34,7 +34,7 @@
             <div class="center promo promo-example">
                 <i class="large material-icons">format_color_text</i>
                 <h5 class="promo-caption">Agile Approved</h5>
-                <p class="light center">Small sprints have been proven to increase workflow. With short sprints during the course of a hackathon, your team can stay focused and produce the best app possible.</p>
+                <p class="light center">Small sprints have been proven to increase workflow. With short sprints during the course of a hackathon, your team can stay focused, organized and produce the best app possible.</p>
             </div>
         </div>
         <div>

@@ -3,8 +3,8 @@
 include(SHARED_PATH . '/public_header.php');
 
 $sprint = null;
-if(is_get_request()) {
-    if (isset($_GET['storyid'])){
+if (is_get_request()) {
+    if (isset($_GET['storyid'])) {
         $story_id = $_GET['storyid'];
         $entry = story::find_by_id($story_id);
         $arr = array("complete" => 1);
@@ -13,8 +13,7 @@ if(is_get_request()) {
         $entry->save();
 
         redirect_to("sprint.php");
-    }
-    else if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+    } else if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $_SESSION['sprint-id'] = $id;
@@ -36,25 +35,25 @@ if(is_get_request()) {
         <ul class="collection with-header z-depth-1">
             <li class="collection-header">
                 <?php echo "<h4> Sprint " . $sprint->name
-                    . "<div class='secondary-content black-text' style='padding-right:10px;' id='countdown'></div><script>t = new timer(\"". $sprint->alertTime() ."\",'countdown');</script></h4>"
+                    . "<div class='secondary-content black-text' style='padding-right:10px;' id='countdown'></div><script>t = new timer(\"" . $sprint->alertTime() . "\",'countdown');</script></h4>"
                 ?>
                 <?php
-                $sql = "SELECT * from stories WHERE sprint_id='". $sprint->id ."'";
+                $sql = "SELECT * from stories WHERE sprint_id='" . $sprint->id . "'";
                 $stories = story::find_by_sql($sql);
                 $completeCount = 0;
-                foreach($stories as $story){
-                    if($story->complete){
+                foreach ($stories as $story) {
+                    if ($story->complete) {
                         $completeCount++;
                     }
                 }
-                if(count($stories) == 0) {
+                if (count($stories) == 0) {
                     return 100;
                 }
-                $percentage  = (100 * $completeCount / count($stories));
+                $percentage = (100 * $completeCount / count($stories));
 
                 $statusColor = "teal";
-                if($percentage == 100){
-                    $statusColor =  "green";
+                if ($percentage == 100) {
+                    $statusColor = "green";
                 }
                 ?>
                 <div class="progress" style="height:10px;">
@@ -63,14 +62,20 @@ if(is_get_request()) {
                 </div>
             </li>
 
-            <?php foreach($stories as $story) { ?>
-                <li class="collection-item <?php if($story->priority == 1){ echo "green lighten-3"; }?>
-                        <?php if($story->priority == 2){ echo "yellow lighten-2"; }?>
-                        <?php if($story->priority == 3){ echo "red lighten-3"; }?>">
+            <?php foreach ($stories as $story) { ?>
+                <li class="collection-item <?php if ($story->priority == 1) {
+                    echo "green lighten-3";
+                } ?>
+                        <?php if ($story->priority == 2) {
+                    echo "yellow lighten-2";
+                } ?>
+                        <?php if ($story->priority == 3) {
+                    echo "red lighten-3";
+                } ?>">
                     <?php echo "<h6 style='font-weight:bold;'>$story->name" ?>
                     <?php echo "<div class='secondary-content'>" ?>
 
-                    <?php if($story->claimed_by != 0) { ?>
+                    <?php if ($story->claimed_by != 0) { ?>
                         <?php
                         $member = member::find_by_id($story->claimed_by);
                         echo
@@ -80,11 +85,11 @@ if(is_get_request()) {
                             ">";
                     } ?>
 
-                    <?php if($story->complete) { ?>
+                    <?php if ($story->complete) { ?>
                         <a class='btn green btn-flat'>Complete<i class="material-icons right">check</i></a>
                     <?php } else { ?>
                         <a href='sprint.php?storyid=<?php echo $story->id ?>' class='btn'>Completed?</a>
-                    <?php  } ?>
+                    <?php } ?>
                     <?php echo "</div></h6>" ?>
 
                     <?php echo "<p> $story->description</p>" ?>

@@ -3,12 +3,12 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-if(is_get_request()) {
+if (is_get_request()) {
     $id = $_GET['id'];
     $project = project::find_by_id($id);
 }
 
-if(is_post_request()){
+if (is_post_request()) {
     $id = $_POST['id'];
     $project = project::find_by_id($id);
     $name = $_POST['sprint_name'] ?? '';
@@ -17,7 +17,7 @@ if(is_post_request()){
     $arr = array('name' => $name, 'duration' => $dur, 'project_id' => $project->id);
     $sprint = new sprint($arr);
     $sprint->save();
-    redirect_to("../../project.php?id=".$id);
+    redirect_to("../../project.php?id=" . $id);
 }
 ?>
 
@@ -36,32 +36,31 @@ if(is_post_request()){
                     <input type="number" class="form-control" name="sprint_duration" value="2">
                 </div>
             </div>
-            <input type="text" name="id" value="<?php echo $_GET['id']?>" hidden>
+            <input type="text" name="id" value="<?php echo $_GET['id'] ?>" hidden>
             <button type="submit" class="btn btn-primary right">Create Sprint</button>
         </form>
     </div>
 </div>
 
 
-
 <script>
-    function checkPasswordLabel(){
+    function checkPasswordLabel() {
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();
         console.log(password2)
-        if(password1 !== password2) {
+        if (password1 !== password2) {
             $('#confirm-password-label').show(250);
         }
-        else{
+        else {
             $('#confirm-password-label').hide(250);
         }
     }
 
-    function hideLabel(){
+    function hideLabel() {
         $('#confirm-password-label').hide(250);
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         hideLabel();
         $("#confirmPassword").on("focus", checkPasswordLabel);
         $("#confirmPassword").on("keyup", checkPasswordLabel);

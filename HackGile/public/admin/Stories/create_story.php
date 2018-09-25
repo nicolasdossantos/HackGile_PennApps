@@ -17,12 +17,12 @@ if (is_post_request()) {
     $desc = $_POST['description'] ?? '';
     $priority = $_POST['priority'] ?? '';
 
-    $arr = array("name"=>$name, "description" => $desc, "project_id" => $projectId, "priority" => $priority);
+    $arr = array("name" => $name, "description" => $desc, "project_id" => $projectId, "priority" => $priority);
     $story = new story($arr);
     $result = $story->save();
 
 
-    redirect_to("../../project.php?id=".$_POST['id']);
+    redirect_to("../../project.php?id=" . $_POST['id']);
 }
 ?>
 
@@ -50,14 +50,14 @@ if (is_post_request()) {
             <div class="row">
                 <div class="input-field col s12">
                     <select name="priority">
-                        <option value = "" disabled selected>Priority</option>
-                        <option value ="3">High</option>
-                        <option value ="2">Medium</option>
-                        <option value ="1">Low</option>
+                        <option value="" disabled selected>Priority</option>
+                        <option value="3">High</option>
+                        <option value="2">Medium</option>
+                        <option value="1">Low</option>
                     </select>
                 </div>
             </div>
-            <input type="text" name="id" value="<?php echo $_GET['id']?>" hidden>
+            <input type="text" name="id" value="<?php echo $_GET['id'] ?>" hidden>
             <button type="submit" class="btn btn-primary">Add Story</button>
         </form>
     </div>
@@ -65,10 +65,11 @@ if (is_post_request()) {
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, {classes: '', dropdownOptions: {}});
     });
+
     function checkPasswordLabel() {
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();

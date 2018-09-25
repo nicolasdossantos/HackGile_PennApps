@@ -5,18 +5,18 @@
 <?php
 
 $sprint = null;
-if(is_get_request()){
-    if(!isset($_GET['id'])) {
+if (is_get_request()) {
+    if (!isset($_GET['id'])) {
         redirect_to('../../signup.php');
     }
     $id = $_GET['id'];
-    $sprint= sprint::find_by_id($id);
+    $sprint = sprint::find_by_id($id);
     if ($project == false) {
         redirect_to('../../index.php');
     }
 }
 
-if(is_post_request()){
+if (is_post_request()) {
     $name = $_POST['sprint_name'] ?? '';
     $dur = $_POST['sprint_duration'] ?? 2;
 
@@ -37,11 +37,12 @@ if(is_post_request()){
             <div class="row">
                 <div class="input-field col s8">
                     <label for="sprint_name">Sprint Name</label>
-                    <input type="text" class="form-control" name="sprint_name" placeholder=<?php echo $sprint->name;?>>
+                    <input type="text" class="form-control" name="sprint_name" placeholder=<?php echo $sprint->name; ?>>
                 </div>
                 <div class="input-field col s4">
                     <label for="sprint_duration">Sprint Duration (Hours)</label>
-                    <input type="number" class="form-control" name="sprint_duration" value="<?php echo $sprint->duration;?>">
+                    <input type="number" class="form-control" name="sprint_duration"
+                           value="<?php echo $sprint->duration; ?>">
                 </div>
             </div>
 
@@ -58,25 +59,24 @@ if(is_post_request()){
 </div>
 
 
-
 <script>
-    function checkPasswordLabel(){
+    function checkPasswordLabel() {
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();
         console.log(password2)
-        if(password1 !== password2) {
+        if (password1 !== password2) {
             $('#confirm-password-label').show(250);
         }
-        else{
+        else {
             $('#confirm-password-label').hide(250);
         }
     }
 
-    function hideLabel(){
+    function hideLabel() {
         $('#confirm-password-label').hide(250);
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         hideLabel();
         $("#confirmPassword").on("focus", checkPasswordLabel);
         $("#confirmPassword").on("keyup", checkPasswordLabel);

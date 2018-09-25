@@ -16,7 +16,7 @@ class story extends Database
     public $project_id;
 
 
-    public function __construct($arr=[])
+    public function __construct($arr = [])
     {
         $this->name = $arr['name'] ?? '';
         $this->priority = $arr['priority'] ?? 3;
@@ -27,11 +27,13 @@ class story extends Database
         $this->sprint_id = $arr['sprint_id'] ?? 0;
     }
 
-    public function set_sprint_id($sprint_id){
+    public function set_sprint_id($sprint_id)
+    {
         $this->sprint_id = $sprint_id;
     }
 
-    public function claim_story($memberId){
+    public function claim_story($memberId)
+    {
         $this->claimed_by = $memberId;
     }
 

@@ -3,7 +3,7 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <?php
-if(is_post_request()){
+if (is_post_request()) {
     $name = $_POST['name'] ?? '';
     $desc = $_POST['description'] ?? '';
     $repo = $_POST['git_link'] ?? '';
@@ -12,8 +12,8 @@ if(is_post_request()){
     $hackathon_duration = $_POST['hackathon_length'] ?? 24;
     $creator_id = $_POST['created_by_id'];
 
-    $arr = array('name'=>$name,'description'=>$desc, 'git_link'=>$repo, 'max_members'=>$max_members, 'hackathon_name'=>$hackathon_name,
-        'hackathon_duration'=>$hackathon_duration);
+    $arr = array('name' => $name, 'description' => $desc, 'git_link' => $repo, 'max_members' => $max_members, 'hackathon_name' => $hackathon_name,
+        'hackathon_duration' => $hackathon_duration);
     $project = new project($arr);
     $project->save();
     $last_id = $database->insert_id;
@@ -25,12 +25,8 @@ if(is_post_request()){
     $user->merge_attributes($arr);
     $user->save();
 
-    if($project){
-        echo '<div>Project Created Successfully!</div>';
 
-    }
-
-    redirect_to("../Stories/create_story.php?id=".$project->id);
+    redirect_to("../../member.php");
 }
 ?>
 
@@ -42,14 +38,16 @@ if(is_post_request()){
             <div class="row">
                 <div class="input-field col s12">
                     <label for="name">Project Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Project Name (Can be changed later)">
+                    <input type="text" class="form-control" name="name"
+                           placeholder="Project Name (Can be changed later)">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <label for="description">Description</label>
-                    <textarea id="desc-text-area" name="description" class="materialize-textarea" placeholder="Description (Optional)"></textarea>
+                    <textarea id="desc-text-area" name="description" class="materialize-textarea"
+                              placeholder="Description (Optional)"></textarea>
                 </div>
             </div>
 
@@ -77,32 +75,31 @@ if(is_post_request()){
                     <input type="number" class="form-control" name="hackathon_length" value="24">
                 </div>
             </div>
-            <input type="text" name="created_by_id" value="<?php echo $_SESSION['user-id']?>" hidden>
+            <input type="text" name="created_by_id" value="<?php echo $_SESSION['user-id'] ?>" hidden>
             <button type="submit" class="btn btn-primary">Create Project</button>
         </form>
     </div>
 </div>
 
 
-
 <script>
-    function checkPasswordLabel(){
+    function checkPasswordLabel() {
         let password1 = $('#password').val();
         let password2 = $('#confirmPassword').val();
         console.log(password2)
-        if(password1 !== password2) {
+        if (password1 !== password2) {
             $('#confirm-password-label').show(250);
         }
-        else{
+        else {
             $('#confirm-password-label').hide(250);
         }
     }
 
-    function hideLabel(){
+    function hideLabel() {
         $('#confirm-password-label').hide(250);
     }
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         hideLabel();
         $("#confirmPassword").on("focus", checkPasswordLabel);
         $("#confirmPassword").on("keyup", checkPasswordLabel);
