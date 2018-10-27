@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 75 60" style="enable-background:new 0 0 75 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:none;}
+	.st2{font-family:'TrebuchetMS';}
+	.st3{font-size:24px;}
+	.st4{font-size:48px;}
+	.st5{letter-spacing:-5;}
+	.st6{fill:none;stroke:#32ED15;stroke-width:3;}
+	.st7{enable-background:new    ;}
+	.st8{fill:#006573;}
+</style>
+<g>
+	<title>background</title>
+	<g id="canvasGrid" class="st0">
+		<rect y="0" class="st1" width="75" height="60"/>
+	</g>
+</g>
+<g>
+	<title>Layer 1</title>
+	<text transform="matrix(1 0 0 1 1 26.7997)" class="st2 st3">H</text>
+	<text transform="matrix(1 0 0 1 16.8665 26.7997)" class="st2 st4 st5"> </text>
+	<text transform="matrix(1 0 0 1 28.2998 26.7997)" class="st2 st3">CK</text>
+	<text id="svg_3" transform="matrix(1 0 0 1 26.3334 46.7992)" class="st2 st3">GILE</text>
+	<line id="svg_4" class="st6" x1="2" y1="52.8" x2="74" y2="52.8"/>
+	<g id="svg_2_1_">
+		<g id="svg_2_2_" class="st7">
+			<path class="st8" d="M20.4,7.9h5.1l10.2,42.6h-7.2l-5.5-27.9l-5.5,27.9h-7.2L20.4,7.9z M17.1,37h11.6v6.8H17.1V37z"/>
+		</g>
+	</g>
+</g>
+</svg>
